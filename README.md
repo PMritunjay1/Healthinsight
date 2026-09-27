@@ -74,10 +74,12 @@ pytest tests/
 
 To keep the repository clean and optimized, **large model weights and datasets are intentionally excluded from version control.** The system expects the following ONNX models to be located in `backend/models/`:
 
-- `cardiologist_model_quant.onnx`
+- `cardiologist_mimic_final_quant.onnx`
 - `intent_model_single_quant.onnx`
 - `neurologist_final_quant.onnx`
 - `pulmonologist_final_quant.onnx`
+- `risk_model_Bio_ClinicalBERT_quant.onnx`
+- `diagnosis_model_BiomedNLP-PubMedBERT-base-uncased-abstract_quant.onnx`
 - And their corresponding `.onnx.data` companion files.
 
 **How to obtain them:**

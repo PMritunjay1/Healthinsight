@@ -28,10 +28,12 @@ All ONNX models and PyTorch checkpoints have been excluded (`backend/models/*.on
 **Retrieval:** The mentor can retrieve these directly from the external drive distribution or via the project's internal blob storage link. 
 
 Required excluded files include:
-- `cardiologist_model_quant.onnx` and `.data`
+- `cardiologist_mimic_final_quant.onnx` and `.data`
 - `intent_model_single_quant.onnx` and `.data`
 - `neurologist_final_quant.onnx` and `.data`
 - `pulmonologist_final_quant.onnx` and `.data`
+- `risk_model_Bio_ClinicalBERT_quant.onnx` and `.data`
+- `diagnosis_model_BiomedNLP-PubMedBERT-base-uncased-abstract_quant.onnx` and `.data`
 
 ## 4. Security Checks Performed
 - **Regex Audit:** A full workspace grep was executed targeting keywords: `OPENAI_API_KEY`, `password`, `secret`, `.env`, and `token`.
