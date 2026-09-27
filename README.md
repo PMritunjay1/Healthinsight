@@ -70,20 +70,48 @@ To run the backend tests (OCR and integration):
 pytest tests/
 ```
 
-## Required Model and Data Files
+## Trained Model Setup
 
-To keep the repository clean and optimized, **large model weights and datasets are intentionally excluded from version control.** The system expects the following ONNX models to be located in `backend/models/`:
+The trained model weights are intentionally not included in GitHub because of their large size. The trained ONNX model package will be provided separately to the mentor.
 
-- `cardiologist_mimic_final_quant.onnx`
-- `intent_model_single_quant.onnx`
-- `neurologist_final_quant.onnx`
-- `pulmonologist_final_quant.onnx`
-- `risk_model_Bio_ClinicalBERT_quant.onnx`
-- `diagnosis_model_BiomedNLP-PubMedBERT-base-uncased-abstract_quant.onnx`
-- And their corresponding `.onnx.data` companion files.
+The system expects the following exact folder structure and filenames because the current implementation loads these paths directly:
 
-**How to obtain them:**
-The mentor can retrieve these pre-compiled models from the project's external storage drive or by running the generation scripts provided in previous iterations.
+```text
+HealthInsight/
+└── backend/
+    └── models/
+        ├── cardiologist_mimic_final_quant.onnx
+        ├── cardiologist_mimic_final_quant.onnx.data
+        ├── pulmonologist_final_quant.onnx
+        ├── pulmonologist_final_quant.onnx.data
+        ├── neurologist_final_quant.onnx
+        ├── neurologist_final_quant.onnx.data
+        ├── intent_model_single_quant.onnx
+        ├── intent_model_single_quant.onnx.data
+        ├── risk_model_Bio_ClinicalBERT_quant.onnx
+        ├── risk_model_Bio_ClinicalBERT_quant.onnx.data
+        ├── diagnosis_model_BiomedNLP-PubMedBERT-base-uncased-abstract_quant.onnx
+        └── diagnosis_model_BiomedNLP-PubMedBERT-base-uncased-abstract_quant.onnx.data
+```
+
+**Instructions:**
+1. Clone the GitHub repository.
+2. Create the `backend/models/` directory if it does not already exist.
+3. Copy the separately provided trained model files into that directory.
+4. Keep each filename exactly as specified.
+5. Install the required dependencies.
+6. Start the backend/frontend using the documented commands.
+
+The GitHub repository contains the implementation/code, while the separately supplied model package contains the trained weights required for full local inference.
+
+| Model | Purpose | Location |
+|---|---|---|
+| Cardiologist | Local cardiology specialist | `backend/models/` |
+| Pulmonologist | Local pulmonology specialist | `backend/models/` |
+| Neurologist | Local neurology specialist | `backend/models/` |
+| Intent model | Chief-complaint/intent classification | `backend/models/` |
+| Risk model | Risk/urgency prediction | `backend/models/` |
+| Diagnosis model | Diagnosis/fallback prediction | `backend/models/` |
 
 ## Reproducibility Limitations
 

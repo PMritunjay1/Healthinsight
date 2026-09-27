@@ -24,8 +24,8 @@ To ensure a clean, professional repository suitable for mentor review, the follo
 ## 3. Large Files Excluded (Model Weights)
 All ONNX models and PyTorch checkpoints have been excluded (`backend/models/*.onnx`, `*.data`, `*.pt`).
 
-**Reason:** Total size exceeds standard Git/GitHub limits (many files are > 400MB).
-**Retrieval:** The mentor can retrieve these directly from the external drive distribution or via the project's internal blob storage link. 
+**Reason:** Models are excluded from GitHub because of their size. The complete trained model package is supplied separately.
+**Retrieval:** The exact six required model groups and their `.data` companion files are listed below. The mentor should copy them into `backend/models/`.
 
 Required excluded files include:
 - `cardiologist_mimic_final_quant.onnx` and `.data`

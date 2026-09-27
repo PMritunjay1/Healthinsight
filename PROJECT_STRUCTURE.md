@@ -59,6 +59,8 @@ HealthInsight/
 └── README.md                   # Project documentation
 ```
 
+**Note:** Model weights are intentionally external to the Git repository and are mounted under `backend/models/`. The repository should remain usable as a source-code distribution without committing the large model binaries.
+
 ### Design Principles
 - **No Cloud Dependencies:** Complete offline operability using quantized ONNX models.
 - **Traceability:** Rule-Based Information Extraction (RIE) ensures token-to-diagnosis mapping.
