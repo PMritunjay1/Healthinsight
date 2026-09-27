@@ -81,17 +81,11 @@ HealthInsight/
 └── backend/
     └── models/
         ├── cardiologist_mimic_final_quant.onnx
-        ├── cardiologist_mimic_final_quant.onnx.data
         ├── pulmonologist_final_quant.onnx
-        ├── pulmonologist_final_quant.onnx.data
         ├── neurologist_final_quant.onnx
-        ├── neurologist_final_quant.onnx.data
         ├── intent_model_single_quant.onnx
-        ├── intent_model_single_quant.onnx.data
         ├── risk_model_Bio_ClinicalBERT_quant.onnx
-        ├── risk_model_Bio_ClinicalBERT_quant.onnx.data
-        ├── diagnosis_model_BiomedNLP-PubMedBERT-base-uncased-abstract_quant.onnx
-        └── diagnosis_model_BiomedNLP-PubMedBERT-base-uncased-abstract_quant.onnx.data
+        └── diagnosis_model_BiomedNLP-PubMedBERT-base-uncased-abstract_quant.onnx
 ```
 
 **Instructions:**
