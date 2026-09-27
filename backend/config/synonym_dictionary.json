@@ -1,0 +1,193 @@
+{
+    "shortness of breath": [
+        "breathing difficulty",
+        "breathlesness",
+        "breathlessness",
+        "difficulty breathing",
+        "dyspnea",
+        "gasping",
+        "heavy breathing",
+        "shorness of breath",
+        "short of breath",
+        "shortness of breath",
+        "sob",
+        "trouble breathing"
+    ],
+    "fever": [
+        "pyrexia",
+        "high temp",
+        "febrile",
+        "feverish",
+        "feever",
+        "fver",
+        "chills"
+    ],
+    "cough": [
+        "coughing",
+        "tussis",
+        "coughh",
+        "couggh",
+        "coughing up"
+    ],
+    "chest pain": [
+        "angina",
+        "cardiac pain",
+        "chest ache",
+        "chest discomfort",
+        "chest painn",
+        "chest pressure",
+        "chest tightness",
+        "crushing chest pain",
+        "pain in chest",
+        "pain in the chest",
+        "substernal chest pain",
+        "substernal pain",
+        "substernal pressure"
+    ],
+    "headache": [
+        "cephalalgia",
+        "head pain",
+        "headaches",
+        "headeche",
+        "hedache",
+        "migraine",
+        "severe headache",
+        "throbbing head"
+    ],
+    "nausea": [
+        "vomiting",
+        "emesis",
+        "queasy",
+        "nauseous",
+        "nauseaa",
+        "nauseus"
+    ],
+    "swelling": [
+        "edema",
+        "swollen",
+        "oedema",
+        "sweling",
+        "swolling",
+        "fluid retention"
+    ],
+    "pain": [
+        "ache",
+        "aching",
+        "hurt",
+        "hurting",
+        "soreness",
+        "paain",
+        "pains"
+    ],
+    "stiffness": [
+        "rigid",
+        "rigidity",
+        "stiff",
+        "stiffnes",
+        "stifness",
+        "muscle stiffness"
+    ],
+    "anxiety": [
+        "anxious",
+        "nervousness",
+        "panic",
+        "anxity",
+        "panic attack"
+    ],
+    "palpitations": [
+        "racing heart",
+        "heart pounding",
+        "fluttering chest",
+        "palpitation",
+        "heart flutter"
+    ],
+    "confusion": [
+        "confused",
+        "disoriented",
+        "delirium",
+        "confussion",
+        "altered mental status"
+    ],
+    "fatigue": [
+        "tiredness",
+        "exhaustion",
+        "lethargy",
+        "fatigued",
+        "fatiguee",
+        "weakness"
+    ],
+    "blood": [
+        "bleeding",
+        "hemorrhage",
+        "hematuria",
+        "bloody"
+    ],
+    "weight loss": [
+        "losing weight",
+        "weight reduction",
+        "cachexia",
+        "unexplained weight loss"
+    ],
+    "blurred vision": [
+        "blurry vision",
+        "vision blur",
+        "double vision",
+        "blurry"
+    ],
+    "diarrhea": [
+        "loose stools",
+        "diarrhoea",
+        "watery stools"
+    ],
+    "smoker": [
+        "smoking",
+        "smoke",
+        "tobacco use",
+        "nicotine use",
+        "cigarettes",
+        "cigarette smoker"
+    ],
+    "hypertension": [
+        "high blood pressure",
+        "high bp",
+        "htn",
+        "hypertensive"
+    ],
+    "diabetic": [
+        "diabetes",
+        "diabetes mellitus",
+        "high sugar",
+        "dm"
+    ],
+    "obese": [
+        "obesity",
+        "overweight",
+        "high bmi"
+    ],
+    "alcohol": [
+        "alcoholism",
+        "drinking",
+        "heavy drinker",
+        "alcohol abuse",
+        "ethanol"
+    ],
+    "asthma": [
+        "bronchial asthma",
+        "asthmatic",
+        "athma",
+        "ashtma"
+    ],
+    "elderly": [
+        "aged",
+        "old age",
+        "geriatric",
+        "senior citizen",
+        "elderly patient"
+    ],
+    "autoimmune": [
+        "lupus",
+        "rheumatoid",
+        "autoimmune disease",
+        "arthritis"
+    ]
+}

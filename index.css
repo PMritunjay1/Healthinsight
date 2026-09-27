@@ -1,0 +1,5 @@
+@layer base {
+  body {
+    font-family: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}

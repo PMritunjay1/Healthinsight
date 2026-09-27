@@ -1,0 +1,12 @@
+[
+    {"id": "DEV-01", "patient_text": "Chest pain radiating to the left arm, sweating", "history": "Smoker", "expected_diagnosis": "Myocardial Infarction"},
+    {"id": "DEV-02", "patient_text": "Severe headache with nausea and photophobia", "history": "None", "expected_diagnosis": "Migraine"},
+    {"id": "DEV-03", "patient_text": "Shortness of breath and wheezing", "history": "Asthma", "expected_diagnosis": "Asthma"},
+    {"id": "DEV-04", "patient_text": "Abdominal pain in lower right quadrant with fever", "history": "None", "expected_diagnosis": "Appendicitis"},
+    {"id": "DEV-05", "patient_text": "Memory loss, confusion, old age", "history": "Hypertension", "expected_diagnosis": "Alzheimer"},
+    {"id": "DEV-06", "patient_text": "Fever, productive cough, high WBC", "history": "None", "expected_diagnosis": "Pneumonia"},
+    {"id": "DEV-07", "patient_text": "Joint pain, swelling, uric acid normal", "history": "Autoimmune", "expected_diagnosis": "Rheumatoid Arthritis"},
+    {"id": "DEV-08", "patient_text": "Palpitations, anxiety, sweating", "history": "Thyroid history", "expected_diagnosis": "Hyperthyroidism"},
+    {"id": "DEV-09", "patient_text": "Fatigue, pallor, low hemoglobin", "history": "Poor diet", "expected_diagnosis": "Anemia"},
+    {"id": "DEV-10", "patient_text": "Blurred vision, high sugar levels", "history": "Diabetic", "expected_diagnosis": "Diabetic Retinopathy"}
+]

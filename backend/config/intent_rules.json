@@ -1,0 +1,126 @@
+{
+    "synonyms": {
+        "heart attack": "myocardial infarction",
+        "high blood pressure": "hypertension",
+        "diabetic": "diabetes mellitus",
+        "stroke": "cerebrovascular accident",
+        "asthma attack": "asthma exacerbation",
+        "kidney failure": "renal failure",
+        "gallstones": "cholelithiasis",
+        "stomach flu": "gastroenteritis",
+        "pain in chest": "chest pain",
+        "shortness of breath": "dyspnea",
+        "difficulty breathing": "dyspnea",
+        "acid reflux": "gastroesophageal reflux disease",
+        "high sugar": "hyperglycemia"
+    },
+    "domain_mappings": [
+        {
+            "specialty_keywords": ["cardiovascular", "pulmonary"],
+            "disambiguation": {
+                "keywords": ["heart", "cardiac", "coronary", "valve", "infarct", "stent", "angina", "chest pain"],
+                "match_domain": "cardio",
+                "default_domain": "pulmo"
+            }
+        },
+        {
+            "specialty_keywords": ["neurology", "neurosurgery"],
+            "target_domain": "neuro"
+        },
+        {
+            "specialty_keywords": ["gastroenterology", "urology", "nephrology"],
+            "target_domain": "gastro"
+        },
+        {
+            "specialty_keywords": ["endocrinology"],
+            "target_domain": "general"
+        }
+    ],
+    "urgency_rules": {
+        "critical": [
+            "cardiac arrest",
+            "myocardial infarction",
+            "respiratory arrest",
+            "shock",
+            "coma",
+            "hemorrhage",
+            "stroke",
+            "dissection",
+            "anaphylaxis",
+            "suicidal",
+            "unresponsive"
+        ],
+        "high": [
+            "severe",
+            "radiating",
+            "uncontrolled",
+            "high fever",
+            "fracture",
+            "acute pain",
+            "chest pain",
+            "dyspnea",
+            "wheezing",
+            "confusion"
+        ],
+        "medium": [
+            "moderate",
+            "persistent",
+            "subacute",
+            "vomiting",
+            "chronic",
+            "nausea",
+            "fever",
+            "diarrhea",
+            "pain"
+        ]
+    },
+    "task_rules": {
+        "emergency": {
+            "keywords": [],
+            "urgency_trigger": "critical"
+        },
+        "treatment": {
+            "keywords": [
+                "operation",
+                "surgery",
+                "laparoscopic",
+                "resection",
+                "reconstruction",
+                "prescribed",
+                "discharge summary",
+                "therapy",
+                "management",
+                "rehab"
+            ],
+            "specialty_keywords": ["surgery"]
+        },
+        "diagnosis": {
+            "keywords": [
+                "consult",
+                "history and physical",
+                "evaluation",
+                "presents with",
+                "complaining of",
+                "diagnostic",
+                "radiology",
+                "mri",
+                "ct scan",
+                "ultrasound"
+            ],
+            "specialty_keywords": ["consult", "radiology"]
+        }
+    },
+    "stopwords": [
+        "a", "an", "the", "and", "or", "but", "if", "then", "of", "at", "by", "for", "with", "about", "to", "in", "on"
+    ],
+    "negation_patterns": [
+        "no",
+        "not",
+        "without",
+        "denies",
+        "negative for",
+        "free of",
+        "rule out",
+        "absence of"
+    ]
+}

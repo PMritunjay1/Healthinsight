@@ -1,0 +1,26 @@
+{
+    "hypertension": {
+        "icd9": ["401", "402", "403", "404", "405"],
+        "icd10": ["I10", "I11", "I12", "I13", "I15"]
+    },
+    "angina": {
+        "icd9": ["413"],
+        "icd10": ["I20"]
+    },
+    "atrial fibrillation": {
+        "icd9": ["42731"],
+        "icd10": ["I48"]
+    },
+    "coronary artery disease": {
+        "icd9": ["4140", "4149", "4292"],
+        "icd10": ["I25"]
+    },
+    "arrhythmia": {
+        "icd9": ["427"],
+        "icd10": ["I47", "I49"]
+    },
+    "heart failure": {
+        "icd9": ["428"],
+        "icd10": ["I50"]
+    }
+}

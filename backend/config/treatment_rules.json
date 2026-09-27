@@ -1,0 +1,704 @@
+{
+    "Acne": {
+        "recommended_treatment": {
+            "Low": "Topical salicylic acid or benzoyl peroxide daily.",
+            "Medium": "Topical retinoids (e.g., adapalene 0.1%) combined with topical clindamycin.",
+            "High": "Oral doxycycline (100mg twice daily) combined with topical benzoyl peroxide."
+        },
+        "medication_category": "Topical Keratolytics, Topical Retinoids, Tetracycline Antibiotics",
+        "lifestyle_recommendations": "Wash face twice daily with a gentle cleanser, avoid picking lesions, use non-comedogenic skincare products.",
+        "contraindications": "Avoid oral doxycycline during pregnancy or in children under 8 years of age.",
+        "red_flags": "Severe facial swelling, high fever, or signs of secondary skin infection.",
+        "emergency_referral_conditions": "Signs of facial cellulitis or systemic sepsis.",
+        "specialist_referral": "Dermatologist",
+        "follow_up": "Re-evaluate clinical response in 6 to 8 weeks.",
+        "guideline_version": "NICE Guidelines NG198 v2.1",
+        "last_updated": "2025-06-12",
+        "evidence_source": "National Institute for Health and Care Excellence (NICE)",
+        "rationale": "Topical keratolytics act first-line for mild acne by promoting desquamation. Severe cases require tetracyclines to address deep follicular inflammation."
+    },
+    "Arthritis": {
+        "recommended_treatment": {
+            "Low": "Oral Acetaminophen (500mg every 6 hours as needed) and topical NSAID gel (diclofenac 1%).",
+            "Medium": "Oral Ibuprofen (400mg three times daily) with proton pump inhibitor gastroprotection.",
+            "High": "Oral Prednisone short-course or initiation of DMARD (e.g., Methotrexate) under rheumatology direction."
+        },
+        "medication_category": "Non-opioid Analgesics, NSAIDs, Corticosteroids, DMARDs",
+        "lifestyle_recommendations": "Gentle low-impact exercise (swimming, cycling), weight management, joint protection techniques.",
+        "contraindications": "NSAIDs are contraindicated in active peptic ulcer disease, severe renal impairment, or severe heart failure.",
+        "red_flags": "Single joint that is hot, red, swollen, and exquisitely painful with systemic fever.",
+        "emergency_referral_conditions": "Suspected septic arthritis or acute joint dislocation.",
+        "specialist_referral": "Rheumatologist",
+        "follow_up": "Review pain management and joint function in 4 weeks.",
+        "guideline_version": "NICE Guidelines NG226 v1.0",
+        "last_updated": "2025-03-10",
+        "evidence_source": "National Institute for Health and Care Excellence (NICE)",
+        "rationale": "Pain relief starts with paracetamol and topical agents to minimize systemic NSAID side effects. Autoimmune flare-ups require steroid intervention."
+    },
+    "Bronchial Asthma": {
+        "recommended_treatment": {
+            "Low": "As-needed low-dose ICS-formoterol (e.g., budesonide-formoterol 160/4.5 mcg).",
+            "Medium": "Regular daily low-dose maintenance ICS-formoterol.",
+            "High": "Medium-to-high dose maintenance ICS-formoterol; refer for oral corticosteroid trial."
+        },
+        "medication_category": "Inhaled Corticosteroids (ICS), Long-Acting Beta-Agonists (LABA)",
+        "lifestyle_recommendations": "Identify and avoid triggers (dust mites, pet dander, tobacco smoke). Monitor peak flow.",
+        "contraindications": "Do not use long-acting beta-agonists without inhaled corticosteroids (black box warning).",
+        "red_flags": "Use of rescue inhaler > 3 times per week, waking up at night with asthma symptoms.",
+        "emergency_referral_conditions": "Silent chest, cyanosis (blue lips/face), inability to speak full sentences, peak flow < 50% personal best.",
+        "specialist_referral": "Pulmonologist / Allergist",
+        "follow_up": "Check inhaler technique and review asthma control in 2 to 4 weeks.",
+        "guideline_version": "GINA 2024 Asthma Management Standards",
+        "last_updated": "2024-05-15",
+        "evidence_source": "Global Initiative for Asthma (GINA)",
+        "rationale": "ICS-formoterol provides rapid bronchodilation while simultaneously treating the underlying airway inflammation to prevent exacerbations."
+    },
+    "Cervical spondylosis": {
+        "recommended_treatment": {
+            "Low": "Physical therapy assessment, active neck stretching, and Acetaminophen for pain.",
+            "Medium": "Oral Naproxen (500mg twice daily) and a short course of muscle relaxant (Cyclobenzaprine 5mg at night).",
+            "High": "Gabapentin (100mg three times daily) for radiculopathy, and evaluation for surgical decompression."
+        },
+        "medication_category": "NSAIDs, Muscle Relaxants, Gabapentinoids",
+        "lifestyle_recommendations": "Practice good posture, adjust computer screens to eye level, perform isometric neck strengthening.",
+        "contraindications": "Avoid cervical manipulation/chiropractic cracking in patients with radicular symptoms.",
+        "red_flags": "Progressive muscle weakness in hands or arms, gait instability, bowel/bladder incontinence.",
+        "emergency_referral_conditions": "Acute spinal cord compression symptoms (cervical myelopathy).",
+        "specialist_referral": "Orthopedic Spine Surgeon / Neurologist",
+        "follow_up": "Review neurological symptoms in 4 weeks.",
+        "guideline_version": "NICE CKS - Cervical Spondylosis Guidelines",
+        "last_updated": "2025-01-20",
+        "evidence_source": "NICE Clinical Knowledge Summaries (CKS)",
+        "rationale": "Conservative management with physical therapy and NSAIDs resolve most mechanical cases. Radiculopathy requires gabapentinoids."
+    },
+    "Chicken pox": {
+        "recommended_treatment": {
+            "Low": "Supportive care: Calamine lotion, cool baths, oral Paracetamol for fever.",
+            "Medium": "Oral Acyclovir (800mg 5 times daily for 5 days) if started within 24 hours of rash onset in high-risk patients.",
+            "High": "Intravenous Acyclovir (10mg/kg every 8 hours) for severe/complicated cases."
+        },
+        "medication_category": "Antipruritics, Oral/IV Antivirals, Antipyretics",
+        "lifestyle_recommendations": "Keep fingernails short to prevent scratching and secondary infection, wear loose clothing, isolate.",
+        "contraindications": "Aspirin is strictly contraindicated due to the risk of Reye's Syndrome in viral infections.",
+        "red_flags": "Extreme drowsiness, confusion, shortness of breath, or bleeding into the chickenpox spots.",
+        "emergency_referral_conditions": "Suspected varicella pneumonia, encephalitis, or severe secondary skin sepsis.",
+        "specialist_referral": "Infectious Disease Specialist / Pediatrician",
+        "follow_up": "Monitor closely for 7 to 10 days until all lesions have crusted over.",
+        "guideline_version": "CDC Varicella Management Guidelines 2024",
+        "last_updated": "2024-08-01",
+        "evidence_source": "Centers for Disease Control and Prevention (CDC)",
+        "rationale": "Symptomatic care is sufficient for healthy children. Antivirals are indicated for older patients or severe complications to suppress replication."
+    },
+    "Common Cold": {
+        "recommended_treatment": {
+            "Low": "Hydration, rest, saline nasal sprays, and steam inhalation.",
+            "Medium": "Pseudoephedrine (60mg every 6 hours) for congestion, Acetaminophen for sore throat.",
+            "High": "Evaluation for secondary bacterial sinusitis or bronchitis if symptoms worsen past 10 days."
+        },
+        "medication_category": "Decongestants, Nasal Saline, Analgesics",
+        "lifestyle_recommendations": "Drink warm liquids, wash hands frequently, gargle with salt water, get adequate sleep.",
+        "contraindications": "Do not give OTC cough and cold medicines to children under 6 years. Avoid pseudoephedrine in severe hypertension.",
+        "red_flags": "Difficulty breathing, persistent high fever (>38.5C) lasting more than 3 days.",
+        "emergency_referral_conditions": "Acute respiratory distress or severe chest pain.",
+        "specialist_referral": "General Practitioner",
+        "follow_up": "Self-monitor. Review if symptoms do not improve within 10 to 14 days.",
+        "guideline_version": "NICE CKS - Common Cold Guidelines",
+        "last_updated": "2024-09-11",
+        "evidence_source": "NICE Clinical Knowledge Summaries (CKS)",
+        "rationale": "Colds are self-limiting viral infections. Antibiotics are contraindicated and have no effect. Management focuses on symptomatic relief."
+    },
+    "Dengue": {
+        "recommended_treatment": {
+            "Low": "Oral hydration (WHO Oral Rehydration Salts), strict rest, Paracetamol (500mg) for fever.",
+            "Medium": "Close monitoring of complete blood counts (hematocrit/platelets) every 12 to 24 hours. Intravenous crystalloids if oral intake is poor.",
+            "High": "Emergency hospitalization for IV fluid management and platelet transfusion."
+        },
+        "medication_category": "Oral Rehydration Salts, Analgesics (Paracetamol Only)",
+        "lifestyle_recommendations": "Rest in bed, stay hydrated with electrolyte solutions, use mosquito netting and insect repellents.",
+        "contraindications": "NSAIDs (ibuprofen, aspirin, naproxen) are contraindicated due to bleeding risk from platelet dysfunction.",
+        "red_flags": "Persistent vomiting, severe abdominal pain, bleeding gums or nose, cold clammy extremities, lethargy.",
+        "emergency_referral_conditions": "Severe dengue shock syndrome (DSS) or dengue hemorrhagic fever (DHF).",
+        "specialist_referral": "Infectious Disease Specialist / Pediatrician",
+        "follow_up": "Daily monitoring of platelet count until fever subsides for 48 hours.",
+        "guideline_version": "WHO Dengue Guidelines 2024",
+        "last_updated": "2024-11-15",
+        "evidence_source": "World Health Organization (WHO)",
+        "rationale": "Dengue treatment is supportive. Fluid management is critical to offset plasma leakage. NSAIDs are avoided to prevent fatal hemorrhage."
+    },
+    "Dimorphic Hemorrhoids": {
+        "recommended_treatment": {
+            "Low": "High-fiber diet (25-30g daily), fiber supplements (Psyllium), and warm sitz baths.",
+            "Medium": "Topical hydrocortisone cream (1% for max 7 days) and oral stool softeners (Docusate).",
+            "High": "Surgical evaluation for rubber band ligation, sclerotherapy, or hemorrhoidectomy."
+        },
+        "medication_category": "Topical Corticosteroids, Stool Softeners, Fiber Laxatives",
+        "lifestyle_recommendations": "Increase water intake, avoid straining during defecation, avoid sitting on toilet for >5 minutes.",
+        "contraindications": "Do not use topical steroids for more than 7 days to prevent skin atrophy.",
+        "red_flags": "Large volume rectal bleeding, severe persistent rectal pain, fever.",
+        "emergency_referral_conditions": "Strangulated, thrombosed hemorrhoid causing excruciating pain.",
+        "specialist_referral": "General Surgeon / Gastroenterologist",
+        "follow_up": "Review symptoms in 2 to 3 weeks.",
+        "guideline_version": "NICE CKS - Hemorrhoids Management",
+        "last_updated": "2024-10-05",
+        "evidence_source": "NICE Clinical Knowledge Summaries (CKS)",
+        "rationale": "Initial management is dietary to reduce stool hardness. Short-course topical steroids address acute inflammation."
+    },
+    "Fungal infection": {
+        "recommended_treatment": {
+            "Low": "Topical Clotrimazole (1%) or Miconazole cream twice daily for 2 weeks.",
+            "Medium": "Topical Terbinafine (1%) cream daily for 1 week; add oral Fluconazole (150mg single dose) if widespread.",
+            "High": "Oral Terbinafine (250mg daily) for 2 to 4 weeks (requires baseline liver function tests)."
+        },
+        "medication_category": "Topical Antifungals (Imidazoles, Allylamines), Oral Antifungals",
+        "lifestyle_recommendations": "Keep affected skin clean and dry, wear loose cotton clothing, avoid sharing towels/linens.",
+        "contraindications": "Oral terbinafine is contraindicated in active or chronic liver disease.",
+        "red_flags": "Spreading redness, warmth, pus, or fever (indicating secondary bacterial infection).",
+        "emergency_referral_conditions": "Severe systemic symptoms in immunocompromised patients.",
+        "specialist_referral": "Dermatologist / General Practitioner",
+        "follow_up": "Review in 2 weeks if no improvement.",
+        "guideline_version": "NICE CKS - Fungal Skin Infections",
+        "last_updated": "2025-02-12",
+        "evidence_source": "NICE Clinical Knowledge Summaries (CKS)",
+        "rationale": "Topical azoles/allylamines effectively clear localized dermatophyte infections. Widespread cases require systemic oral therapy."
+    },
+    "Hypertension": {
+        "recommended_treatment": {
+            "Low": "Dietary modification (DASH diet) and sodium restriction (<2g daily); review in 3 months.",
+            "Medium": "Initiate single-agent therapy (e.g., Lisinopril 10mg daily or Amlodipine 5mg daily).",
+            "High": "Dual-agent therapy (e.g., Lisinopril 20mg + Amlodipine 5mg daily) and close monitoring."
+        },
+        "medication_category": "ACE Inhibitors, Angiotensin Receptor Blockers (ARBs), Calcium Channel Blockers (CCBs)",
+        "lifestyle_recommendations": "Adopt DASH diet, perform 150 minutes of aerobic exercise weekly, limit alcohol, quit smoking.",
+        "contraindications": "ACE inhibitors and ARBs are strictly contraindicated in pregnancy due to fetal renal toxicity.",
+        "red_flags": "Blood pressure reading > 180/120 mmHg, chest pain, vision changes, severe headache.",
+        "emergency_referral_conditions": "Hypertensive emergency (BP > 180/120 mmHg with acute target organ damage).",
+        "specialist_referral": "Cardiologist",
+        "follow_up": "Re-check blood pressure in 2 weeks after initiating or altering medication.",
+        "guideline_version": "WHO Hypertension Guidelines 2023",
+        "last_updated": "2023-08-25",
+        "evidence_source": "World Health Organization (WHO)",
+        "rationale": "Pharmacotherapy choice is tailored by risk profile. ACEi/CCB serve as first-line agents to reduce cardiovascular stroke risk."
+    },
+    "Impetigo": {
+        "recommended_treatment": {
+            "Low": "Topical Hydrogen Peroxide (1%) cream or topical Mupirocin (2%) ointment 3 times daily for 5 days.",
+            "Medium": "Oral Cephalexin (500mg 4 times daily) or Flucloxacillin for 5 to 7 days.",
+            "High": "Intravenous antibiotics for extensive, bullous impetigo with systemic symptoms."
+        },
+        "medication_category": "Topical Antibiotics, Oral/IV Cephalosporins / Penicillins",
+        "lifestyle_recommendations": "Gently wash honey-colored crusts with soap and water, wash hands frequently, isolate towels.",
+        "contraindications": "Avoid topical mupirocin overuse to prevent resistance in MRSA strains.",
+        "red_flags": "Rapid spread of lesions near the eyes, high fever, or severe lethargy.",
+        "emergency_referral_conditions": "Suspected staphylococcal scalded skin syndrome or cellulitis.",
+        "specialist_referral": "Dermatologist / Pediatrician",
+        "follow_up": "Check response in 5 days.",
+        "guideline_version": "NICE Guidelines NG153 v1.1",
+        "last_updated": "2024-02-18",
+        "evidence_source": "National Institute for Health and Care Excellence (NICE)",
+        "rationale": "Localized impetigo is treated topically to minimize systemic antibiotic side effects. Widespread lesions require oral antibiotics."
+    },
+    "Jaundice": {
+        "recommended_treatment": {
+            "Low": "Investigatory workup: liver function tests, abdominal ultrasound, and supportive hydration.",
+            "Medium": "Identify and treat specific cause (e.g. stop suspected drug, treat hepatitis).",
+            "High": "Hospitalization for biliary decompression or liver support therapy."
+        },
+        "medication_category": "Supportive Agents, Anti-pruritics (Cholestyramine) if biliary obstruction",
+        "lifestyle_recommendations": "Eat a low-fat, high-carbohydrate diet, maintain hydration, avoid all hepatotoxins.",
+        "contraindications": "Strictly avoid alcohol, acetaminophen (paracetamol), and other hepatotoxic medications.",
+        "red_flags": "Confusion, flapping hand tremor (asterixis), bleeding tendency, severe abdominal distension.",
+        "emergency_referral_conditions": "Acute liver failure (hepatic encephalopathy, coagulopathy).",
+        "specialist_referral": "Gastroenterologist / Hepatologist",
+        "follow_up": "Repeat liver function panels every 48 to 72 hours until stable.",
+        "guideline_version": "NIH NIDDK Liver Disease Standards",
+        "last_updated": "2024-04-10",
+        "evidence_source": "National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)",
+        "rationale": "Jaundice is a symptom of underlying liver dysfunction. Rest and removal of hepatotoxic agents protect parenchymal cells."
+    },
+    "Malaria": {
+        "recommended_treatment": {
+            "Low": "Oral Artemether-lumefantrine (ACT) or Chloroquine depending on local resistance patterns.",
+            "Medium": "Oral ACT with close clinical monitoring; add Primaquine for P. vivax relapse prevention.",
+            "High": "Intravenous Artesunate (2.4 mg/kg at 0, 12, and 24 hours, then daily)."
+        },
+        "medication_category": "Artemisinin-based Combination Therapy (ACT), Primaquine, IV Artesunate",
+        "lifestyle_recommendations": "Stay hydrated, rest in bed, wear long-sleeved clothing, sleep under insecticidal nets.",
+        "contraindications": "Primaquine is contraindicated in patients with G6PD deficiency due to risk of severe hemolysis.",
+        "red_flags": "Altered consciousness, severe anemia, persistent vomiting, dark urine.",
+        "emergency_referral_conditions": "Severe malaria (cerebral malaria, severe anemia, pulmonary edema).",
+        "specialist_referral": "Infectious Disease Specialist",
+        "follow_up": "Verify parasite clearance with blood smears at 48 hours and 7 days.",
+        "guideline_version": "WHO Malaria Guidelines 2024",
+        "last_updated": "2024-03-20",
+        "evidence_source": "World Health Organization (WHO)",
+        "rationale": "ACT is first-line for uncomplicated malaria to clear blood-stage parasites. Severe malaria requires rapid IV artesunate."
+    },
+    "Migraine": {
+        "recommended_treatment": {
+            "Low": "Oral Ibuprofen (400mg) or Acetaminophen (500mg) combined with oral Caffeine.",
+            "Medium": "Oral Sumatriptan (500mg) at onset of headache, combined with an antiemetic (Metoclopramide 10mg).",
+            "High": "Intravenous hydration, Ketorolac (30mg IV), and initiation of prophylactic beta-blockers (Propranolol)."
+        },
+        "medication_category": "NSAIDs, Triptans, Antiemetics, Beta-blockers",
+        "lifestyle_recommendations": "Keep a headache diary, maintain a consistent sleep schedule, stay hydrated, avoid skipped meals.",
+        "contraindications": "Triptans are contraindicated in patients with ischemic heart disease, coronary vasospasm, or uncontrolled hypertension.",
+        "red_flags": "Sudden onset 'thunderclap' headache, headache with neck stiffness, fever, or focal neurological signs.",
+        "emergency_referral_conditions": "Suspected subarachnoid hemorrhage or meningitis.",
+        "specialist_referral": "Neurologist",
+        "follow_up": "Review headache diary and abortive therapy response in 4 weeks.",
+        "guideline_version": "NICE Guidelines CG150 v1.2",
+        "last_updated": "2024-07-15",
+        "evidence_source": "National Institute for Health and Care Excellence (NICE)",
+        "rationale": "First-line therapies target peripheral inflammation. Triptans are selective 5-HT agonists used to reverse cerebral vasodilation."
+    },
+    "Pneumonia": {
+        "recommended_treatment": {
+            "Low": "Oral Amoxicillin (500mg three times daily) or Doxycycline for 5 days.",
+            "Medium": "Oral Levofloxacin (500mg daily) or combination of Amoxicillin + Azithromycin for 5 to 7 days.",
+            "High": "Hospitalization for IV Ceftriaxone + Azithromycin, oxygen supplementation, and monitoring."
+        },
+        "medication_category": "Penicillins, Tetracyclines, Macrolides, Respiratory Fluoroquinolones",
+        "lifestyle_recommendations": "Get complete rest, stay hydrated, avoid smoking, perform deep breathing exercises.",
+        "contraindications": "Fluoroquinolones are contraindicated in patients with a history of tendonitis or aortic aneurysm.",
+        "red_flags": "Respiratory rate > 30/min, oxygen saturation < 92% on room air, confusion.",
+        "emergency_referral_conditions": "Severe respiratory failure, septic shock, or CURB-65 score >= 3.",
+        "specialist_referral": "Pulmonologist",
+        "follow_up": "Check clinical recovery in 48 hours; repeat chest X-ray in 6 weeks.",
+        "guideline_version": "ATS/IDSA Community-Acquired Pneumonia Guidelines",
+        "last_updated": "2024-01-10",
+        "evidence_source": "American Thoracic Society (ATS) / Infectious Diseases Society of America (IDSA)",
+        "rationale": "Antibiotics target common atypical and typical pathogens. Empiric scaling depends on patient comorbidities and severity score."
+    },
+    "Psoriasis": {
+        "recommended_treatment": {
+            "Low": "Topical emollients (ointments) and mild topical Corticosteroids (e.g. Hydrocortisone 1%).",
+            "Medium": "Potent topical Corticosteroids (e.g. Betamethasone) combined with Calcipotriene (Vitamin D analogue).",
+            "High": "Refer for Phototherapy (UVB) or systemic therapy (Methotrexate or Biologics like Adalimumab)."
+        },
+        "medication_category": "Topical Emollients, Topical Corticosteroids, Vitamin D Analogues, Systemic Immunosuppressants",
+        "lifestyle_recommendations": "Keep skin moist, take lukewarm baths, avoid scratching lesions, practice stress reduction.",
+        "contraindications": "Avoid sudden withdrawal of potent systemic steroids, which can trigger erythrodermic flares.",
+        "red_flags": "Widespread painful skin redness with sheets of pustules and systemic fever.",
+        "emergency_referral_conditions": "Suspected generalized pustular psoriasis or erythrodermic psoriasis.",
+        "specialist_referral": "Dermatologist",
+        "follow_up": "Evaluate topical treatment response in 4 weeks.",
+        "guideline_version": "NICE Guidelines CG153 v2.0",
+        "last_updated": "2024-11-20",
+        "evidence_source": "National Institute for Health and Care Excellence (NICE)",
+        "rationale": "Topical steroids suppress immune hyperactivation in the dermis. High-severity cases require systemic immunosuppressants."
+    },
+    "Typhoid": {
+        "recommended_treatment": {
+            "Low": "Oral Azithromycin (500mg daily) for 7 days with strict home isolation.",
+            "Medium": "Oral Ciprofloxacin (500mg twice daily) or Azithromycin for 10-14 days with daily blood checks.",
+            "High": "Intravenous Ceftriaxone (2g daily) for 10 to 14 days and close monitoring."
+        },
+        "medication_category": "Macrolides, Fluoroquinolones, Third-generation Cephalosporins",
+        "lifestyle_recommendations": "Drink boiled or bottled water only, eat fully cooked hot foods, wash hands thoroughly.",
+        "contraindications": "Avoid fluoroquinolones in regions with known high quinolone resistance profiles.",
+        "red_flags": "Severe abdominal pain, bloody stools, persistent vomiting, altered consciousness.",
+        "emergency_referral_conditions": "Suspected intestinal perforation or hemorrhage.",
+        "specialist_referral": "Infectious Disease Specialist / Gastroenterologist",
+        "follow_up": "Three stool cultures must be negative at 1 week post-treatment before clearing.",
+        "guideline_version": "WHO Typhoid Treatment Standards",
+        "last_updated": "2024-06-15",
+        "evidence_source": "World Health Organization (WHO)",
+        "rationale": "Antibiotic therapy eradicates Salmonella enterica serovar Typhi. Quinolone resistance requires scaling to azithromycin."
+    },
+    "Varicose Veins": {
+        "recommended_treatment": {
+            "Low": "Leg elevation, regular walking, and weight loss support.",
+            "Medium": "Graduated compression stockings (Class II, 20-30 mmHg) worn during the day.",
+            "High": "Vascular surgical referral for endothermal ablation or sclerotherapy."
+        },
+        "medication_category": "Compression Garments, Supportive Venoactive Drugs",
+        "lifestyle_recommendations": "Avoid prolonged standing or sitting, elevate legs above heart level, exercise calf muscles.",
+        "contraindications": "Compression stockings are contraindicated in severe peripheral arterial disease (ABPI < 0.8).",
+        "red_flags": "Sudden painful swelling in a single leg, warm skin, or ulceration near the ankle.",
+        "emergency_referral_conditions": "Suspected deep vein thrombosis (DVT) or active bleeding from a ruptured varicose vein.",
+        "specialist_referral": "Vascular Surgeon",
+        "follow_up": "Review symptom progression in 3 months.",
+        "guideline_version": "NICE Guidelines CG168 v1.3",
+        "last_updated": "2024-05-10",
+        "evidence_source": "National Institute for Health and Care Excellence (NICE)",
+        "rationale": "Lifestyle changes and compression garments improve venous return. Severe anatomical reflux requires vein ablation."
+    },
+    "allergy": {
+        "recommended_treatment": {
+            "Low": "Oral Cetirizine (10mg daily) or Loratadine as needed for mild symptoms.",
+            "Medium": "Fluticasone propionate nasal spray (2 sprays per nostril daily) + oral antihistamine.",
+            "High": "Intramuscular Epinephrine (0.3mg, e.g. EpiPen) immediately, followed by emergency room visit."
+        },
+        "medication_category": "Second-generation H1 Antihistamines, Nasal Corticosteroids, Epinephrine",
+        "lifestyle_recommendations": "Avoid known allergen triggers, use HEPA air filters, rinse sinuses with saline.",
+        "contraindications": "Avoid sedating first-generation antihistamines in elderly patients due to fall and anticholinergic risks.",
+        "red_flags": "Swelling of lips, tongue, or throat, difficulty swallowing, wheezing, dizziness.",
+        "emergency_referral_conditions": "Anaphylaxis (multi-system allergic reaction with respiratory or cardiovascular involvement).",
+        "specialist_referral": "Allergist / Immunologist",
+        "follow_up": "Check back in 2 weeks to evaluate drug efficacy.",
+        "guideline_version": "NIH NIAID Allergy Standards 2024",
+        "last_updated": "2024-04-18",
+        "evidence_source": "National Institute of Allergy and Infectious Diseases (NIAID)",
+        "rationale": "Second-generation antihistamines block peripheral H1 receptors. Anaphylaxis requires intramuscular epinephrine."
+    },
+    "diabetes": {
+        "recommended_treatment": {
+            "Low": "Dietary modification, weight loss program, and Metformin (500mg daily) titration.",
+            "Medium": "Metformin (1000mg twice daily) combined with a GLP-1 receptor agonist (e.g. Semaglutide).",
+            "High": "Initiate Basal Insulin (e.g., Glargine 10 units daily) and refer to Endocrinology."
+        },
+        "medication_category": "Biguanides (Metformin), GLP-1 Receptor Agonists, Basal/Bolus Insulins",
+        "lifestyle_recommendations": "Maintain low-carbohydrate diet, perform 150 minutes of aerobic exercise weekly, conduct daily foot self-inspections.",
+        "contraindications": "Metformin is contraindicated in severe renal impairment (eGFR < 30 mL/min/1.73m2) due to lactic acidosis risk.",
+        "red_flags": "Blood glucose > 250 mg/dL with ketones in urine, confusion, rapid deep breathing, extreme thirst.",
+        "emergency_referral_conditions": "Diabetic Ketoacidosis (DKA) or Hyperosmolar Hyperglycemic State (HHS).",
+        "specialist_referral": "Endocrinologist",
+        "follow_up": "Check HbA1c level every 3 months until target (<7%) is achieved, then every 6 months.",
+        "guideline_version": "ADA Standards of Care 2024",
+        "last_updated": "2024-01-02",
+        "evidence_source": "American Diabetes Association (ADA)",
+        "rationale": "Metformin reduces hepatic glucose output. Escalating to insulin is required when oral agents fail to control hyperglycemia."
+    },
+    "drug reaction": {
+        "recommended_treatment": {
+            "Low": "Stop the offending drug immediately. Apply Hydrocortisone (1%) topical cream for pruritus.",
+            "Medium": "Stop drug; initiate oral Prednisone (40mg daily tapered over 5 days) + oral antihistamine.",
+            "High": "Admit to hospital, administer IV fluids, IV Methylprednisolone, and manage skin care."
+        },
+        "medication_category": "Topical / Systemic Corticosteroids, H1 Antihistamines",
+        "lifestyle_recommendations": "Clearly document the drug name and reaction type, inform all pharmacies, wear an alert bracelet.",
+        "contraindications": "Do not re-expose the patient to the offending drug or cross-reactive medication classes.",
+        "red_flags": "Skin peeling, blistering, mucous membrane lesions (mouth, eyes, genitals), high fever.",
+        "emergency_referral_conditions": "Suspected Stevens-Johnson Syndrome (SJS), Toxic Epidermal Necrolysis (TEN), or DRESS syndrome.",
+        "specialist_referral": "Allergist / Dermatologist",
+        "follow_up": "Verify complete resolution of skin symptoms in 1 week.",
+        "guideline_version": "NICE Guidelines CG183 v1.2",
+        "last_updated": "2024-06-20",
+        "evidence_source": "National Institute for Health and Care Excellence (NICE)",
+        "rationale": "Immediate withdrawal of the offending antigen is the single most critical intervention. Steroids mitigate hypersensitivity."
+    },
+    "gastroesophageal reflux disease": {
+        "recommended_treatment": {
+            "Low": "Lifestyle and dietary changes; take antacids (calcium carbonate) as needed.",
+            "Medium": "Take Famotidine (20mg twice daily) or Omeprazole (20mg daily) for a 4-to-8 week course.",
+            "High": "Increase Omeprazole to 40mg daily and evaluate for anti-reflux surgery (Nissen fundoplication)."
+        },
+        "medication_category": "Antacids, H2 Receptor Antagonists (H2RAs), Proton Pump Inhibitors (PPIs)",
+        "lifestyle_recommendations": "Eat smaller meals, avoid lying down for 3 hours after eating, elevate the head of the bed, lose weight.",
+        "contraindications": "Long-term PPI use should be avoided without periodic review due to fracture and B12 deficiency risks.",
+        "red_flags": "Difficulty swallowing (dysphagia), painful swallowing (odynophagia), vomiting blood, iron-deficiency anemia.",
+        "emergency_referral_conditions": "Severe chest pain radiating to back or arm (rule out acute coronary syndrome).",
+        "specialist_referral": "Gastroenterologist",
+        "follow_up": "Re-evaluate symptoms in 4 weeks.",
+        "guideline_version": "NICE Guidelines CG184 v1.1",
+        "last_updated": "2024-03-12",
+        "evidence_source": "National Institute for Health and Care Excellence (NICE)",
+        "rationale": "PPIs covalently bind and inhibit the H+/K+ ATPase pump in gastric parietal cells, significantly raising stomach pH."
+    },
+    "peptic ulcer disease": {
+        "recommended_treatment": {
+            "Low": "Omeprazole (20mg daily) for 4 weeks. Stop NSAID use.",
+            "Medium": "Perform H. pylori testing; if positive, initiate triple therapy: Omeprazole + Amoxicillin + Clarithromycin.",
+            "High": "Intravenous Pantoprazole infusion, complete bowel rest, and urgent upper endoscopy."
+        },
+        "medication_category": "Proton Pump Inhibitors (PPIs), Antibiotics (Penicillins, Macrolides)",
+        "lifestyle_recommendations": "Avoid all NSAID drugs, stop smoking, limit alcohol, avoid late-night snacks.",
+        "contraindications": "Do not administer clarithromycin in patients taking simvastatin due to severe myopathy risk.",
+        "red_flags": "Sudden severe abdominal pain, vomiting blood, black tarry stools (melena).",
+        "emergency_referral_conditions": "Acute gastrointestinal bleeding or gastrointestinal perforation.",
+        "specialist_referral": "Gastroenterologist",
+        "follow_up": "Confirm H. pylori eradication using a urea breath test 4 weeks after finishing antibiotics.",
+        "guideline_version": "NICE Guidelines CG184 v1.3",
+        "last_updated": "2024-05-18",
+        "evidence_source": "National Institute for Health and Care Excellence (NICE)",
+        "rationale": "Acid suppression promotes mucosal healing. Eradicating H. pylori is necessary to prevent recurrent ulceration."
+    },
+    "urinary tract infection": {
+        "recommended_treatment": {
+            "Low": "Oral Nitrofurantoin (100mg modified-release twice daily) for 3 days (females) or 7 days (males).",
+            "Medium": "Oral Trimethoprim-sulfamethoxazole (160/800mg twice daily) for 3 days; obtain urine culture.",
+            "High": "Intravenous Ceftriaxone (1g daily) or Piperacillin-tazobactam for pyelonephritis."
+        },
+        "medication_category": "First-line Urinary Antibacterials, Sulfonamides, IV Cephalosporins",
+        "lifestyle_recommendations": "Increase water intake, urinate after intercourse, wipe from front to back.",
+        "contraindications": "Nitrofurantoin is ineffective and contraindicated in patients with eGFR < 30 mL/min.",
+        "red_flags": "High fever, chills, severe flank/back pain, nausea, vomiting.",
+        "emergency_referral_conditions": "Suspected urosepsis or acute pyelonephritis with hemodynamic instability.",
+        "specialist_referral": "Urologist / Nephrologist",
+        "follow_up": "Self-monitor. Review if symptoms do not fully resolve within 48 hours of starting antibiotics.",
+        "guideline_version": "NICE Guidelines NG109 v1.2",
+        "last_updated": "2024-08-10",
+        "evidence_source": "National Institute for Health and Care Excellence (NICE)",
+        "rationale": "Nitrofurantoin concentrates highly in the bladder urine. Pyelonephritis requires systemic IV cephalosporins."
+    },
+    "angina": {
+        "recommended_treatment": {
+            "Low": "Sublingual Nitroglycerin (0.4mg as needed for acute chest discomfort), low-dose Aspirin (81mg daily), and lifestyle risk modification.",
+            "Medium": "Oral Beta-Blocker (Metoprolol succinate 50mg daily) plus high-intensity Statin (Atorvastatin 80mg daily) and sublingual Nitroglycerin.",
+            "High": "Urgent cardiology referral for diagnostic coronary angiography; Dual Antiplatelet Therapy (Aspirin + Clopidogrel) and IV Nitroglycerin."
+        },
+        "medication_category": "Organic Nitrates, Beta-Blockers, Antiplatelets, HMG-CoA Reductase Inhibitors",
+        "lifestyle_recommendations": "Adopt Mediterranean diet, engage in supervised cardiac rehabilitation, avoid heavy isometric exertion, achieve smoking cessation.",
+        "contraindications": "Phosphodiesterase-5 inhibitors (e.g. Sildenafil) are strictly contraindicated with Nitrates due to severe refractory hypotension.",
+        "red_flags": "Chest pain lasting > 20 minutes, pain unrelieved by 3 doses of sublingual nitroglycerin, diaphoresis, syncope, hypotension.",
+        "emergency_referral_conditions": "Suspected Acute Coronary Syndrome (unstable angina or myocardial infarction), hemodynamic instability.",
+        "specialist_referral": "Cardiologist",
+        "follow_up": "Cardiology clinic follow-up within 1 to 2 weeks for stress testing.",
+        "guideline_version": "AHA/ACC Chronic Coronary Disease Guidelines 2024",
+        "last_updated": "2025-04-10",
+        "evidence_source": "American Heart Association / American College of Cardiology (AHA/ACC)",
+        "rationale": "Nitrates provide rapid coronary vasodilation while beta-blockers reduce myocardial oxygen demand. High-risk presentations require invasive evaluation."
+    },
+    "arrhythmia": {
+        "recommended_treatment": {
+            "Low": "Electrolyte optimization (potassium > 4.0 mEq/L, magnesium > 2.0 mg/dL), caffeine and alcohol reduction, 24-48h Holter monitoring.",
+            "Medium": "Rate control with Metoprolol succinate (25-50mg daily) or Diltiazem; 12-lead ECG and echocardiography.",
+            "High": "Urgent electrical or pharmacological cardioversion under continuous cardiac telemetry; antiarrhythmic therapy (Amiodarone)."
+        },
+        "medication_category": "Antiarrhythmics (Class I-IV), Beta-Blockers, Calcium Channel Blockers",
+        "lifestyle_recommendations": "Avoid stimulants (caffeine, energy drinks, nicotine), manage stress, maintain adequate hydration and sleep.",
+        "contraindications": "Class IC antiarrhythmics (Flecainide) are contraindicated in patients with structural heart disease or prior myocardial infarction.",
+        "red_flags": "Sustained ventricular tachycardia, syncope, chest pain with palpitations, systolic BP < 90 mmHg.",
+        "emergency_referral_conditions": "Hemodynamically unstable tachycardia, ventricular fibrillation, wide-complex tachycardia.",
+        "specialist_referral": "Cardiac Electrophysiologist / Cardiologist",
+        "follow_up": "Electrophysiology review with Holter monitoring results within 2 to 4 weeks.",
+        "guideline_version": "HRS/ACC/AHA Ventricular and Supraventricular Arrhythmia Guidelines 2024",
+        "last_updated": "2025-02-18",
+        "evidence_source": "Heart Rhythm Society (HRS) / ACC / AHA",
+        "rationale": "Asymptomatic ectopic beats require conservative trigger management. Hemodynamically compromising arrhythmias necessitate rapid stabilization."
+    },
+    "atrial fibrillation": {
+        "recommended_treatment": {
+            "Low": "CHA2DS2-VASc stroke risk assessment; rate control with Metoprolol or Diltiazem if symptomatic.",
+            "Medium": "Direct Oral Anticoagulant (DOAC: Apixaban 5mg twice daily or Rivaroxaban 20mg daily) if CHA2DS2-VASc >= 2; rate control.",
+            "High": "Urgent rate control with IV Diltiazem/Metoprolol or synchronized electrical cardioversion if unstable; therapeutic anticoagulation."
+        },
+        "medication_category": "DOACs (Factor Xa Inhibitors), Beta-Blockers, Non-Dihydropyridine CCBs, Antiarrhythmics",
+        "lifestyle_recommendations": "Strict limitation of alcohol intake (holiday heart avoidance), weight loss, screening for obstructive sleep apnea.",
+        "contraindications": "DOACs are contraindicated in mechanical heart valves or moderate-to-severe mitral stenosis (use Warfarin).",
+        "red_flags": "Rapid ventricular response (HR > 150 bpm) with hypotension, acute shortness of breath, sudden focal neurological deficit.",
+        "emergency_referral_conditions": "Hemodynamically unstable AFib with angina or pulmonary edema; acute ischemic stroke symptoms.",
+        "specialist_referral": "Cardiologist / Electrophysiologist",
+        "follow_up": "Cardiology clinic follow-up within 4 weeks to assess anticoagulation adherence and rhythm control.",
+        "guideline_version": "ACC/AHA/ACCP/HRS Atrial Fibrillation Guidelines 2024",
+        "last_updated": "2025-01-15",
+        "evidence_source": "American College of Cardiology (ACC) / AHA / HRS",
+        "rationale": "Anticoagulation is the primary therapeutic priority to prevent thromboembolic stroke. Rate vs rhythm control is selected based on symptoms."
+    },
+    "coronary artery disease": {
+        "recommended_treatment": {
+            "Low": "Aspirin (81mg daily), high-intensity Statin (Atorvastatin 40-80mg), strict BP control (<130/80 mmHg), and lifestyle modification.",
+            "Medium": "Add Beta-Blocker (Carvedilol or Metoprolol) and ACE-inhibitor (Lisinopril 10-20mg); non-invasive myocardial perfusion imaging.",
+            "High": "Urgent coronary angiography with percutaneous coronary intervention (PCI) or CABG; Dual Antiplatelet Therapy (Aspirin + Ticagrelor/Clopidogrel)."
+        },
+        "medication_category": "Antiplatelets, Statins, ACE Inhibitors / ARBs, Beta-Blockers",
+        "lifestyle_recommendations": "Heart-healthy diet (low saturated fats, high fiber), 150 mins/week moderate aerobic exercise, complete tobacco cessation.",
+        "contraindications": "NSAIDs (except aspirin) should be avoided due to increased cardiovascular thrombotic risk.",
+        "red_flags": "Accelerating frequency or duration of chest pain, pain at rest, dynamic ST-T wave ECG changes.",
+        "emergency_referral_conditions": "Acute ST-Elevation Myocardial Infarction (STEMI), cardiogenic shock, cardiac arrest.",
+        "specialist_referral": "Interventional Cardiologist",
+        "follow_up": "Outpatient cardiology assessment and lipid panel review in 4 to 6 weeks.",
+        "guideline_version": "AHA/ACC Coronary Artery Disease Management Standards 2024",
+        "last_updated": "2025-03-22",
+        "evidence_source": "American Heart Association (AHA)",
+        "rationale": "Plaque stabilization through aggressive statin therapy and antiplatelet inhibition prevents acute thrombotic events."
+    },
+    "heart failure": {
+        "recommended_treatment": {
+            "Low": "Guideline-Directed Medical Therapy (GDMT): SGLT2 inhibitor (Empagliflozin 10mg daily) and ACE-i/ARB; sodium restriction (<2g/day).",
+            "Medium": "Quadruple GDMT: ARNI (Sacubitril/Valsartan), Beta-Blocker (Carvedilol), MRA (Spironolactone 25mg), and SGLT2i; oral Loop Diuretic (Furosemide).",
+            "High": "Hospital admission for IV Loop Diuretics, inotropic support (Dobutamine/Milrinone), telemetry, and consideration of advanced mechanical therapies."
+        },
+        "medication_category": "ARNIs, SGLT2 Inhibitors, Beta-Blockers, Mineralocorticoid Receptor Antagonists, Loop Diuretics",
+        "lifestyle_recommendations": "Daily weight tracking (report > 3 lb gain in 24h), fluid restriction (1.5-2.0 L/day in severe HF), sodium restriction.",
+        "contraindications": "Non-dihydropyridine CCBs (Diltiazem, Verapamil) and NSAIDs are contraindicated in heart failure with reduced ejection fraction (HFrEF).",
+        "red_flags": "Rapid weight gain (> 5 lbs in a week), acute worsening of dyspnea at rest, orthopnea requiring > 3 pillows, pink frothy sputum.",
+        "emergency_referral_conditions": "Acute decompensated heart failure with flash pulmonary edema, cardiogenic shock, severe hypoxemia.",
+        "specialist_referral": "Heart Failure Cardiologist",
+        "follow_up": "Heart failure clinic follow-up within 7 to 14 days of discharge or therapy adjustment.",
+        "guideline_version": "AHA/ACC/HFSA Heart Failure Management Guidelines 2024",
+        "last_updated": "2025-05-01",
+        "evidence_source": "Heart Failure Society of America (HFSA) / ACC / AHA",
+        "rationale": "Four pillars of GDMT reduce all-cause mortality and hospitalizations in HFrEF. Diuretics provide essential symptom decongestion."
+    },
+    "copd": {
+        "recommended_treatment": {
+            "Low": "Short-acting bronchodilator as needed (SABA: Albuterol or SAMA: Ipratropium); smoking cessation counseling and pneumococcal vaccination.",
+            "Medium": "Long-acting muscarinic antagonist (LAMA: Tiotropium) plus long-acting beta-agonist (LABA: Salmeterol); pulmonary rehabilitation.",
+            "High": "Triple therapy (ICS + LAMA + LABA); short course oral Prednisone (40mg x 5 days) and Azithromycin if acute purulent exacerbation."
+        },
+        "medication_category": "LAMAs, LABAs, Inhaled Corticosteroids, SABAs, SAMAs",
+        "lifestyle_recommendations": "Absolute smoking cessation, pulmonary rehabilitation exercise, avoid biomass smoke and air pollution exposure.",
+        "contraindications": "Do not give high-flow unmonitored oxygen in severe COPD due to risk of hypercapnic respiratory drive suppression.",
+        "red_flags": "Significant increase in sputum volume and purulence, acute breathlessness at rest, acute confusion, peripheral cyanosis.",
+        "emergency_referral_conditions": "Acute COPD exacerbation with severe acidosis (pH < 7.35), severe hypoxemia, or altered consciousness.",
+        "specialist_referral": "Pulmonologist",
+        "follow_up": "Pulmonary clinic visit in 4 weeks for spirometry and inhaler device verification.",
+        "guideline_version": "GOLD Global Strategy for COPD 2024",
+        "last_updated": "2024-11-20",
+        "evidence_source": "Global Initiative for Chronic Obstructive Lung Disease (GOLD)",
+        "rationale": "Dual bronchodilation with LAMA/LABA improves lung emptying and reduces exacerbation frequency. Exacerbations require corticosteroids and antibiotics."
+    },
+    "respiratory_failure": {
+        "recommended_treatment": {
+            "Low": "Controlled oxygen therapy via nasal cannula (target SpO2 92-96% in non-hypercapnic patients, 88-92% in COPD); treat underlying trigger.",
+            "Medium": "High-Flow Nasal Cannula (HFNC) or Non-Invasive Ventilation (BiPAP/CPAP); arterial blood gas monitoring in Step-Down/ICU.",
+            "High": "Urgent endotracheal intubation and mechanical ventilation with lung-protective tidal volumes (6 mL/kg PBW); ICU admission."
+        },
+        "medication_category": "Supplemental Oxygen, Bronchodilators, Systemic Corticosteroids, Diuretics (if cardiogenic)",
+        "lifestyle_recommendations": "Strict avoidance of respiratory depressants (sedatives, opioids, alcohol).",
+        "contraindications": "Avoid non-invasive ventilation if patient has facial trauma, severe emesis, high aspiration risk, or hemodynamic instability.",
+        "red_flags": "Accessory muscle use, paradoxical abdominal breathing, refractory hypoxemia (PaO2/FiO2 < 200), acute hypercapnic encephalopathy.",
+        "emergency_referral_conditions": "Acute Type I (hypoxemic) or Type II (hypercapnic) respiratory failure requiring immediate airway support.",
+        "specialist_referral": "Critical Care Pulmonologist / Intensivist",
+        "follow_up": "Daily ICU multidisciplinary rounding and post-extubation pulmonary follow-up.",
+        "guideline_version": "ATS/ERS Acute Respiratory Failure Clinical Practice Guidelines 2024",
+        "last_updated": "2025-01-10",
+        "evidence_source": "American Thoracic Society (ATS) / European Respiratory Society (ERS)",
+        "rationale": "Early non-invasive ventilation prevents intubation in hypercapnic respiratory failure. Invasive mechanical ventilation is indicated for exhaustion."
+    },
+    "pleural_effusion": {
+        "recommended_treatment": {
+            "Low": "Observation and optimization of medical management for underlying cause (diuretics for HF, antibiotics for parapneumonic).",
+            "Medium": "Diagnostic thoracentesis (Light's criteria analysis: protein, LDH, cytology, Gram stain); therapeutic drainage if symptomatic.",
+            "High": "Urgent chest tube (tube thoracostomy) insertion for complicated parapneumonic effusion or empyema; VATS evaluation."
+        },
+        "medication_category": "Systemic Antibiotics (parapneumonic), Diuretics (transudative), Fibrinolytics (loculated)",
+        "lifestyle_recommendations": "Rest during acute dyspnea, deep breathing exercises, smoking cessation.",
+        "contraindications": "Avoid large-volume thoracentesis (> 1.5 L in a single procedure) to prevent re-expansion pulmonary edema.",
+        "red_flags": "Loculated effusion, frank pus on aspiration (empyema), severe pleuritic chest pain with high fever and respiratory distress.",
+        "emergency_referral_conditions": "Tension hydrothorax, empyema with sepsis, massive pleural effusion causing mediastinal shift.",
+        "specialist_referral": "Pulmonologist / Thoracic Surgeon",
+        "follow_up": "Repeat chest radiography within 2 to 4 weeks to ensure resolution and rule out underlying parenchymal malignancy.",
+        "guideline_version": "BTS Pleural Disease Guideline 2024",
+        "last_updated": "2024-10-15",
+        "evidence_source": "British Thoracic Society (BTS)",
+        "rationale": "Light's criteria distinguish transudates from exudates. Empyema and complicated effusions require immediate drainage to prevent fibrothorax."
+    },
+    "pulmonary_embolism": {
+        "recommended_treatment": {
+            "Low": "PESI-score low risk: Direct Oral Anticoagulant (Apixaban 10mg BID x 7 days then 5mg BID, or Rivaroxaban 15mg BID x 21 days then 20mg daily).",
+            "Medium": "Submassive PE with RV strain: Inpatient therapeutic anticoagulation with LMWH (Enoxaparin 1mg/kg Q12H) or DOAC; continuous monitoring.",
+            "High": "Massive PE with shock: Systemic thrombolysis (Alteplase 100mg IV over 2h) or catheter-directed embolectomy; ICU admission."
+        },
+        "medication_category": "Direct Oral Anticoagulants (DOACs), LMWH, Unfractionated Heparin, Systemic Thrombolytics",
+        "lifestyle_recommendations": "Early ambulation, wear graduated compression stockings during long travel, avoid prolonged immobility.",
+        "contraindications": "Systemic thrombolysis is contraindicated in active internal bleeding, recent intracranial hemorrhage, or major surgery within 3 weeks.",
+        "red_flags": "Hypotension (SBP < 90 mmHg), syncope, acute RV dysfunction on echo, elevated troponin/BNP in the setting of acute dyspnea.",
+        "emergency_referral_conditions": "Hemodynamically unstable PE (massive PE), cardiac arrest, severe refractory hypoxemia.",
+        "specialist_referral": "Pulmonologist / Hematologist / PERT (PE Response Team)",
+        "follow_up": "Hematology/pulmonology clinic review at 3 months to assess duration of anticoagulation and chronic thromboembolic disease.",
+        "guideline_version": "ESC/ERS Guidelines on the Diagnosis and Management of Acute Pulmonary Embolism 2024",
+        "last_updated": "2025-02-01",
+        "evidence_source": "European Society of Cardiology (ESC) / ERS",
+        "rationale": "Anticoagulation prevents thrombus propagation and recurrent embolization. Systemic thrombolysis rapidly restores pulmonary perfusion in shock."
+    },
+    "stroke_ischemic": {
+        "recommended_treatment": {
+            "Low": "Transient/minor stroke (NIHSS <= 3): Dual Antiplatelet Therapy (Aspirin 81mg + Clopidogrel 75mg daily for 21 days), high-intensity Statin.",
+            "Medium": "Non-thrombolytic stroke: Aspirin monotherapy, telemetry monitoring, permissive hypertension (<220/120 mmHg), dysphagia screening.",
+            "High": "Within 4.5h of onset: IV Thrombolysis (Tenecteplase 0.25mg/kg or Alteplase 0.9mg/kg); within 24h for LVO: Mechanical Thrombectomy."
+        },
+        "medication_category": "Thrombolytics (tPA/TNK), Antiplatelets (Aspirin, Clopidogrel), Statins, Antihypertensives",
+        "lifestyle_recommendations": "Comprehensive stroke rehabilitation (PT/OT/SLP), strict blood pressure management, sodium restriction, Mediterranean diet.",
+        "contraindications": "Do not administer IV thrombolysis if head CT reveals hemorrhage, recent intracranial surgery, or INR > 1.7.",
+        "red_flags": "Sudden onset facial droop, arm weakness, slurred speech (FAST criteria), acute gaze deviation, decreased level of consciousness.",
+        "emergency_referral_conditions": "Acute stroke symptoms within 24 hours of onset (Code Stroke activation for emergency reperfusion).",
+        "specialist_referral": "Vascular Neurologist / Neuro-interventionalist",
+        "follow_up": "Stroke neurology clinic visit at 30 and 90 days with modified Rankin Scale (mRS) functional assessment.",
+        "guideline_version": "AHA/ASA Early Management of Patients with Acute Ischemic Stroke Guidelines 2024",
+        "last_updated": "2025-01-25",
+        "evidence_source": "American Heart Association / American Stroke Association (AHA/ASA)",
+        "rationale": "Rapid arterial recanalization salvage ischemic penumbra. Time-to-treatment strongly determines functional independence."
+    },
+    "intracranial_hemorrhage": {
+        "recommended_treatment": {
+            "Low": "Small volume ICH: ICU monitoring, strict BP control (target SBP 130-140 mmHg via IV Nicardipine/Labetalol), serial non-contrast CT head.",
+            "Medium": "Moderate ICH: Immediate reversal of anticoagulation (4-Factor PCC for Warfarin, Idarucizumab for Dabigatran, Andexanet for Xa inhibitors).",
+            "High": "Large ICH with mass effect / midline shift / hydrocephalus: Urgent neurosurgical consultation for craniotomy, EVD, or decompressive hemicraniectomy."
+        },
+        "medication_category": "Anticoagulation Reversal Agents (4F-PCC, Andexanet Alfa), IV Antihypertensives, Hyperosmolar Therapy (Mannitol, 3% Saline)",
+        "lifestyle_recommendations": "Rigorous lifetime blood pressure control (<130/80 mmHg), avoid alcohol and illicit sympathomimetic drugs (cocaine/methamphetamine).",
+        "contraindications": "Antiplatelets, anticoagulants, and vasodilators (e.g. Nitroprusside) are strictly contraindicated in active hemorrhage.",
+        "red_flags": "Sudden severe headache ('worst of life'), progressive lethargy, pupil asymmetry, Cushing's triad (bradycardia, hypertension, irregular breathing).",
+        "emergency_referral_conditions": "Acute intracranial hemorrhage, expanding hematoma with neurological deterioration, impending brain herniation.",
+        "specialist_referral": "Neurosurgeon / Neurocritical Care Specialist",
+        "follow_up": "Neurocritical care and neurosurgery follow-up with repeat MRI/CT head at 6 to 12 weeks.",
+        "guideline_version": "AHA/ASA Spontaneous Intracerebral Hemorrhage Guidelines 2024",
+        "last_updated": "2024-12-10",
+        "evidence_source": "American Heart Association / American Stroke Association (AHA/ASA)",
+        "rationale": "Rapid blood pressure reduction and anticoagulation reversal limit hematoma expansion and decrease secondary brain injury."
+    },
+    "epilepsy_seizures": {
+        "recommended_treatment": {
+            "Low": "Single unprovoked seizure with normal MRI/EEG: Observation, seizure precautions (no driving, avoid swimming alone), sleep hygiene.",
+            "Medium": "Recurrent unprovoked seizures: Monotherapy with second-generation Antiseizure Medication (Levetiracetam 500-1000mg BID or Lamotrigine).",
+            "High": "Status Epilepticus (> 5 min): IV Lorazepam (4mg) followed immediately by IV Levetiracetam (60mg/kg) or Fosphenytoin; ICU airway support."
+        },
+        "medication_category": "Antiseizure Medications (ASMs: Levetiracetam, Lamotrigine, Lacosamide), Benzodiazepines (Lorazepam, Midazolam)",
+        "lifestyle_recommendations": "Ensure regular sleep schedule, avoid sleep deprivation, avoid alcohol excess and withdrawal, strictly adhere to medications.",
+        "contraindications": "Avoid abrupt discontinuation of antiseizure medications due to high risk of breakthrough status epilepticus.",
+        "red_flags": "Continuous seizure activity lasting > 5 minutes, failure to regain full consciousness between seizures, status epilepticus.",
+        "emergency_referral_conditions": "Status epilepticus, seizure with major head trauma, prolonged hypoxia or cyanosis during seizure.",
+        "specialist_referral": "Epileptologist / Neurologist",
+        "follow_up": "Comprehensive epilepsy clinic follow-up within 4 weeks with routine electroencephalogram (EEG) and MRI brain.",
+        "guideline_version": "AES/AAN Evidence-Based Guidelines for Status Epilepticus and Epilepsy 2024",
+        "last_updated": "2025-02-15",
+        "evidence_source": "American Epilepsy Society (AES) / American Academy of Neurology (AAN)",
+        "rationale": "Early benzodiazepine administration stops status epilepticus within the critical 5-minute therapeutic window to prevent excitotoxic injury."
+    },
+    "altered_mental_status_encephalopathy": {
+        "recommended_treatment": {
+            "Low": "Identify and reverse metabolic / infectious triggers: Treat UTI/pneumonia, correct mild hyponatremia/hyperglycemia, review polypharmacy.",
+            "Medium": "Hepatic encephalopathy: Lactulose (20-30g TID titrated to 2-3 soft stools/day) plus Rifaximin (550mg BID); thiamine 500mg IV for Wernicke prophylaxis.",
+            "High": "Severe metabolic encephalopathy with coma: Secure airway, IV Dextrose for hypoglycemia, Naloxone for suspected opioid tox, ICU telemetry."
+        },
+        "medication_category": "Lactulose, Rifaximin, Thiamine, IV Dextrose, Electrolyte Replacements, Targeted Antibiotics",
+        "lifestyle_recommendations": "Maintain orientation cues (daylight, clocks, calendars), ensure regular day-night sleep cycles, avoid anticholinergic sedatives.",
+        "contraindications": "Avoid benzodiazepines, diphenhydramine, and opioid sedatives as they worsen delirium and metabolic encephalopathy.",
+        "red_flags": "Rapidly deteriorating Glasgow Coma Scale (GCS < 8), non-reactive pupils, meningismus, severe hypoglycemia.",
+        "emergency_referral_conditions": "Acute coma of unknown etiology, suspected bacterial meningitis / encephalitis, severe sepsis.",
+        "specialist_referral": "Neurologist / Critical Care Internist",
+        "follow_up": "Medical/neurology outpatient review within 2 to 4 weeks after stabilization of underlying metabolic disorder.",
+        "guideline_version": "SCCM / AAN Clinical Practice Guidelines for Acute Encephalopathy 2024",
+        "last_updated": "2025-03-01",
+        "evidence_source": "Society of Critical Care Medicine (SCCM) / American Academy of Neurology (AAN)",
+        "rationale": "Encephalopathy is a symptom of underlying systemic dysfunction. Rapid resolution depends entirely on reversing the primary etiology."
+    },
+    "transient_ischemic_attack": {
+        "recommended_treatment": {
+            "Low": "ABCD2 score < 4: Dual Antiplatelet Therapy (Aspirin 81mg + Clopidogrel 75mg daily for 21 days), high-intensity Statin, vascular imaging within 24h.",
+            "Medium": "ABCD2 score >= 4: Urgent admission to TIA unit; carotid duplex ultrasound, continuous cardiac telemetry, MRI with diffusion-weighted imaging (DWI).",
+            "High": "Symptomatic severe carotid stenosis (70-99%): Urgent Carotid Endarterectomy (CEA) or stenting within 48-72 hours; full stroke prevention GDMT."
+        },
+        "medication_category": "Antiplatelets (Aspirin, Clopidogrel), High-Intensity Statins (Atorvastatin 80mg), Antihypertensives",
+        "lifestyle_recommendations": "Tobacco cessation, Mediterranean diet, aerobic exercise, blood pressure control (<130/80 mmHg).",
+        "contraindications": "Do not treat TIA with full-dose therapeutic anticoagulation unless cardiac source of embolism (e.g. AFib) is proven.",
+        "red_flags": "Crescendo TIAs (multiple episodes in 24 hours), focal motor weakness, speech loss lasting > 15 minutes.",
+        "emergency_referral_conditions": "Acute TIA within 48 hours (90-day stroke risk is highest in the first 48 hours post-TIA).",
+        "specialist_referral": "Stroke Neurologist / Vascular Surgeon",
+        "follow_up": "Urgent outpatient neurovascular clinic visit within 7 days.",
+        "guideline_version": "AHA/ASA Guidelines for the Prevention of Stroke in Patients with Stroke and TIA 2024",
+        "last_updated": "2025-01-20",
+        "evidence_source": "American Heart Association / American Stroke Association (AHA/ASA)",
+        "rationale": "Early DAPT and urgent revascularization for symptomatic carotid disease reduce the 90-day stroke risk by up to 80%."
+    },
+    "neuropathy_neurodegenerative": {
+        "recommended_treatment": {
+            "Low": "Diabetic/peripheral neuropathy: Strict glycemic control (HbA1c < 7.0%), daily foot inspection, topical Capsaicin or Lidocaine 5% patch.",
+            "Medium": "First-line neuropathic pain pharmacotherapy: Duloxetine (30-60mg daily), Gabapentin (300-900mg TID), or Pregabalin (75-150mg BID).",
+            "High": "Rapidly progressive weakness / suspected Guillain-Barre Syndrome: Urgent IVIG (0.4g/kg/day x 5 days) or Plasmapheresis; vital capacity monitoring."
+        },
+        "medication_category": "SNRIs (Duloxetine), Gabapentinoids (Gabapentin, Pregabalin), TCAs (Amitriptyline), Topical Analgesics",
+        "lifestyle_recommendations": "Wear protective supportive footwear, perform daily visual foot examinations, avoid walking barefoot, avoid neurotoxic alcohol intake.",
+        "contraindications": "Avoid long-term opioid analgesics for chronic neuropathic pain due to lack of efficacy and high risk of dependence.",
+        "red_flags": "Ascending muscle weakness, bilateral foot drop, loss of deep tendon reflexes, autonomic instability, respiratory muscle weakness.",
+        "emergency_referral_conditions": "Acute motor neuropathy with rapidly progressive paralysis or diaphragmatic weakness (Guillain-Barre).",
+        "specialist_referral": "Neurologist / Neuromuscular Specialist",
+        "follow_up": "Neurology review with electromyography / nerve conduction studies (EMG/NCS) within 4 to 8 weeks.",
+        "guideline_version": "AAN Practice Guideline: Neuropathic Pain and Peripheral Neuropathy 2024",
+        "last_updated": "2025-02-10",
+        "evidence_source": "American Academy of Neurology (AAN)",
+        "rationale": "Modulating central and peripheral pain pathways with SNRIs or gabapentinoids provides effective neuropathic relief without opioid risks."
+    }
+}

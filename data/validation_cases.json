@@ -1,0 +1,17 @@
+[
+    {"id": "VAL-01", "patient_text": "Chest pain, sweating, severe anxiety and hyperventilation", "history": "Recent panic episodes", "expected_diagnosis": "Panic Attack"},
+    {"id": "VAL-02", "patient_text": "Chest pain radiating to arm, normal ECG initially", "history": "Smoker", "expected_diagnosis": "Myocardial Infarction"},
+    {"id": "VAL-03", "patient_text": "Headache with vision issues, nausea", "history": "None", "expected_diagnosis": "Migraine"},
+    {"id": "VAL-04", "patient_text": "Headache, confusion, fever, neck stiffness", "history": "None", "expected_diagnosis": "Meningitis"},
+    {"id": "VAL-05", "patient_text": "Shortness of breath, wheezing, chest tightness", "history": "Allergy history", "expected_diagnosis": "Asthma"},
+    {"id": "VAL-06", "patient_text": "Shortness of breath, crackles, leg swelling", "history": "Cardiac history", "expected_diagnosis": "Heart Failure"},
+    {"id": "VAL-07", "patient_text": "Abdominal pain after meals, no stones visible", "history": "Obese", "expected_diagnosis": "Functional Dyspepsia"},
+    {"id": "VAL-08", "patient_text": "Abdominal pain, blood in stool, weight loss", "history": "None", "expected_diagnosis": "IBD"},
+    {"id": "VAL-09", "patient_text": "Memory loss, confusion, acute onset", "history": "Elderly", "expected_diagnosis": "Delirium"},
+    {"id": "VAL-10", "patient_text": "Memory decline gradual", "history": "Elderly", "expected_diagnosis": "Alzheimer"},
+    {"id": "VAL-11", "patient_text": "Fever, cough, mild chest pain", "history": "None", "expected_diagnosis": "Bronchitis"},
+    {"id": "VAL-12", "patient_text": "Weight loss, persistent cough, mild fever", "history": "Smoker", "expected_diagnosis": "Lung Cancer"},
+    {"id": "VAL-13", "patient_text": "Joint pain severe, uric acid high", "history": "Alcohol use", "expected_diagnosis": "Gout"},
+    {"id": "VAL-14", "patient_text": "Palpitations, fear, chest discomfort", "history": "Stress", "expected_diagnosis": "Panic Attack"},
+    {"id": "VAL-15", "patient_text": "Fatigue, weight gain, cold intolerance", "history": "None", "expected_diagnosis": "Hypothyroidism"}
+]

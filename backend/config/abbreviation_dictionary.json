@@ -1,0 +1,18 @@
+{
+    "sob": "shortness of breath",
+    "htn": "hypertension",
+    "dm": "diabetic",
+    "copd": "chronic obstructive pulmonary disease",
+    "chf": "congestive heart failure",
+    "cad": "coronary artery disease",
+    "mi": "myocardial infarction",
+    "uri": "upper respiratory infection",
+    "uti": "urinary tract infection",
+    "gerd": "gastroesophageal reflux disease",
+    "pud": "peptic ulcer disease",
+    "bp": "blood pressure",
+    "hr": "heart rate",
+    "rr": "respiratory rate",
+    "temp": "temperature",
+    "spo2": "oxygen saturation"
+}

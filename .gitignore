@@ -1,0 +1,49 @@
+# Python & Node Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+dist/
+
+# Raw Data and Datasets
+datasets/
+mimic-iv-3.1/
+mimic-iv-ed-2.2/
+data/metadata/
+data/processed/
+data/raw/
+*.zip
+*.gz
+*.tar
+*.csv
+
+# Models (Too large for standard GitHub)
+backend/models/*.onnx
+backend/models/*.onnx.data
+backend/models/*.pt
+backend/models/*.bin
+*.onnx
+*.onnx.data
+
+# Temporary, Logs, and Abandoned Work
+archive_temp/
+results/
+docs/
+note/
+scripts/
+WORKSPACE_CLEANUP_AUDIT.md
+*.pdf
+*.log
+.DS_Store
+SHA256SUMS.txt
+scratch/
+
+# Environments
+.env
+.env.local
+.env.*
+.vscode/
+.idea/
