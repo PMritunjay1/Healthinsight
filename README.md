@@ -4,7 +4,7 @@ HealthInsight is an intelligent, agent-based clinical diagnosis support system. 
 
 ## Project Overview
 
-The current implementation leverages a fully offline architecture using ONNX-quantized models executed entirely on CPU. By adopting an agentic collaboration model, HealthInsight parses input, extracts relevant medical symptoms and histories, and assigns the case to a specialized diagnostic model.
+The current implementation provides local/offline inference when the required model weights are supplied. By adopting an agentic collaboration model, HealthInsight parses input, extracts relevant medical symptoms and histories, and assigns the case to a specialized diagnostic model. Models are executed on CPU via ONNX Runtime.
 
 ## Current Architecture
 
