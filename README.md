@@ -31,25 +31,22 @@ HealthInsight-UQ addresses these challenges through a modular architecture:
 The diagnostic pipeline processes patient data through a sequential, six-stage workflow structured in a two-tier inverted-C topology:
 
 ```mermaid
-flowchart LR
-    subgraph Row1 [" "]
+flowchart TD
+    subgraph Row1 ["Stage I: Patient Ingestion and Triage Routing"]
         direction LR
-        Input["Clinical Input<br>(Text / PDF / OCR)"] --> RIE["1. RIE Extraction<br>(Normalization & Entities)"] --> IPM["2. IPM Intent<br>(Domain & Urgency)"] --> Ambiguity["3. Ambiguity & Routing<br>(3-Tier Triage)"]
+        Input["Clinical Input<br>(Text / PDF / OCR)"] --> RIE["1. RIE Extraction<br>(Normalization and Entities)"]
+        RIE --> IPM["2. IPM Intent<br>(Domain and Urgency)"]
+        IPM --> Ambiguity["3. Ambiguity and Routing<br>(3-Tier Triage)"]
     end
     
-    subgraph Row2 [" "]
+    subgraph Row2 ["Stage II: Multi-Agent Consensus and Output"]
         direction RL
-        Output["Final Diagnosis JSON<br>(Calibrated Conf & Referral)"] <-- Consensus["6. Beta Trust Fusion<br>(Bayesian Dynamic Consensus)"] <-- RAC["5. RAC Calibration<br>(Uncertainty & Conformal)"] <-- Specialists["4. Specialist Encoders<br>(Cardio, Pulmo, Neuro)"]
+        Specialists["4. Specialist Encoders<br>(Cardio, Pulmo, Neuro)"] --> RAC["5. RAC Calibration<br>(Uncertainty and Conformal)"]
+        RAC --> Consensus["6. Beta Trust Fusion<br>(Dynamic Credibility)"]
+        Consensus --> Output["Final Diagnosis JSON<br>(Calibrated Conf and Referral)"]
     end
 
     Ambiguity --> Specialists
-
-    style Row1 fill:none,stroke:none;
-    style Row2 fill:none,stroke:none;
-    classDef comp fill:#f8fafc,stroke:#334155,stroke-width:1.5px;
-    classDef hl fill:#eff6ff,stroke:#2563eb,stroke-width:2px;
-    class Input,Output comp;
-    class RIE,IPM,Ambiguity,Specialists,RAC,Consensus hl;
 ```
 
 ### Pipeline Execution Stages:
