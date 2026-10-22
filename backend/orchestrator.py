@@ -16,34 +16,83 @@ from backend.agents.specialist_agents import (
     PulmonologistSpecialistAgent,
     NeurologistSpecialistAgent
 )
-from backend.specialist_router import SpecialistRouter
+from backend.specialist_router import SpecialistRouter, DOMAIN_NAME_MAP
 from backend.rie_module import RIEModule
 from backend.rac_module import RACModule
+from backend.trust_tracker import BetaTrustStore
 
 logger = logging.getLogger("Orchestrator")
 
 # ──────────────────────────────────────────────
-# DOMAIN WEIGHT MAP (Specialist-Enhanced)
+# FROZEN DECISION THRESHOLDS & CLINICAL PRIORITY
+# ──────────────────────────────────────────────
+FROZEN_SPECIALIST_THRESHOLDS = {
+    "cardiologist": {
+        'angina': 0.32, 'arrhythmia': 0.44, 'atrial fibrillation': 0.56,
+        'coronary artery disease': 0.56, 'heart failure': 0.56, 'hypertension': 0.42
+    },
+    "pulmonologist": {
+        'asthma': 0.38, 'copd': 0.48, 'pneumonia': 0.46,
+        'respiratory_failure': 0.52, 'pleural_effusion': 0.56, 'pulmonary_embolism': 0.84
+    },
+    "neurologist": {
+        'stroke_ischemic': 0.48, 'intracranial_hemorrhage': 0.66, 'epilepsy_seizures': 0.60,
+        'altered_mental_status_encephalopathy': 0.42, 'transient_ischemic_attack': 0.46,
+        'neuropathy_neurodegenerative': 0.42
+    }
+}
+
+ACUTE_CLINICAL_PRIORITY = {
+    "pulmonary_embolism": 1.40,
+    "intracranial_hemorrhage": 1.40,
+    "stroke_ischemic": 1.35,
+    "respiratory_failure": 1.35,
+    "epilepsy_seizures": 1.30,
+    "pneumonia": 1.30,
+    "heart failure": 1.25,
+    "altered_mental_status_encephalopathy": 1.25,
+    "transient_ischemic_attack": 1.20,
+    "angina": 1.20,
+    "pleural_effusion": 1.20,
+    "arrhythmia": 1.15,
+    "atrial fibrillation": 1.15,
+    "copd": 1.15,
+    "asthma": 1.15,
+    "coronary artery disease": 1.10,
+    "neuropathy_neurodegenerative": 1.05,
+    "hypertension": 0.80  # Demote background chronic comorbidity in inpatient settings
+}
+
+CHRONIC_BACKGROUND_DIAGNOSES = {
+    'hypertension', 'coronary artery disease', 'neuropathy_neurodegenerative'
+}
+ACUTE_PRESENTING_DIAGNOSES = {
+    'pulmonary_embolism', 'intracranial_hemorrhage', 'stroke_ischemic',
+    'respiratory_failure', 'epilepsy_seizures', 'pneumonia', 'heart failure'
+}
+
+# ──────────────────────────────────────────────
+# BALANCED DOMAIN RELATION MAP (Repaired 1.15x Prior)
 # ──────────────────────────────────────────────
 DOMAIN_RELATION_MAP = {
     "cardio":  {
-        "cardiologist": 1.6, "pulmonologist": 1.1, "neurologist": 0.9,
-        "diagnosis": 1.1, "risk": 1.4, "treatment": 1.2, "intent": 1.0
+        "cardiologist": 1.15, "pulmonologist": 1.0, "neurologist": 1.0,
+        "diagnosis": 1.1, "risk": 1.2, "treatment": 1.1, "intent": 1.0
     },
     "pulmo":   {
-        "pulmonologist": 1.6, "cardiologist": 1.1, "neurologist": 0.9,
-        "diagnosis": 1.1, "risk": 1.4, "treatment": 1.2, "intent": 1.0
+        "pulmonologist": 1.15, "cardiologist": 1.0, "neurologist": 1.0,
+        "diagnosis": 1.1, "risk": 1.2, "treatment": 1.1, "intent": 1.0
     },
     "neuro":   {
-        "neurologist": 1.6, "cardiologist": 0.9, "pulmonologist": 0.9,
-        "diagnosis": 1.1, "risk": 1.4, "treatment": 1.2, "intent": 1.0
+        "neurologist": 1.15, "cardiologist": 1.0, "pulmonologist": 1.0,
+        "diagnosis": 1.1, "risk": 1.2, "treatment": 1.1, "intent": 1.0
     },
     "gastro":  {
-        "diagnosis": 1.5, "cardiologist": 0.8, "pulmonologist": 0.8, "neurologist": 0.8,
-        "risk": 1.2, "treatment": 1.2, "intent": 1.0
+        "diagnosis": 1.2, "cardiologist": 1.0, "pulmonologist": 1.0, "neurologist": 1.0,
+        "risk": 1.1, "treatment": 1.1, "intent": 1.0
     },
     "general": {
-        "diagnosis": 1.4, "cardiologist": 1.0, "pulmonologist": 1.0, "neurologist": 1.0,
+        "diagnosis": 1.1, "cardiologist": 1.0, "pulmonologist": 1.0, "neurologist": 1.0,
         "risk": 1.0, "treatment": 1.0, "intent": 1.0
     },
 }
@@ -66,12 +115,13 @@ def _deterministic_fuse(
     agent_results: Dict[str, AgentResponse],
     rac_output: RACOutput,
     ipm_output: IPMOutput,
-    routing_decision: SpecialistRoutingDecision
+    routing_decision: SpecialistRoutingDecision,
+    candidate_cutoff: Optional[float] = None
 ) -> FinalFusionOutput:
     """
-    Deterministic fusion engine with multi-specialist support.
-    Computes weighted fusion scores, selects the dominant primary diagnosis,
-    and aggregates multi-specialist clinical findings.
+    Principled multi-specialist consensus fusion engine.
+    Uses threshold-normalized margins, acute presentation prioritization,
+    and balanced domain relevance without a fixed, distorting multiplier.
     """
     scores: Dict[str, float] = {}
     candidate_diagnoses: Dict[str, str] = {}
@@ -100,11 +150,34 @@ def _deterministic_fuse(
                 "predicted_urgency": spec_out.predicted_urgency,
                 "confidence": spec_out.confidence
             }
-            # Specialist score boosted by active diagnosis detection
-            active_boost = 1.15 if spec_out.active_diagnoses else 0.90
-            final_score = adj_conf * domain_w * (spec_out.confidence * 0.5 + 0.5) * active_boost
-            candidate_diagnoses[agent_key] = spec_out.primary_diagnosis
+            
+            thresh_map = FROZEN_SPECIALIST_THRESHOLDS.get(agent_key, {})
+            best_disease = spec_out.primary_diagnosis
+            best_disease_score = -10.0
+            spec_active = []
+
+            for d, p in spec_out.disease_probabilities.items():
+                if candidate_cutoff is not None and p < candidate_cutoff:
+                    continue
+                t = thresh_map.get(d, 0.50)
+                if p >= t:
+                    norm_margin = (p - t) / (1.0 - t + 1e-5)
+                    spec_active.append((d, p, norm_margin))
+                else:
+                    norm_margin = (p - t) / (t + 1e-5)
+
+                d_score = norm_margin * 0.60 + p * 0.40
+
+                if d_score > best_disease_score:
+                    best_disease_score = d_score
+                    best_disease = d
+
+            # Incorporate domain relevance and RAC consensus confidence
+            act_boost = 1.15 if spec_out.active_diagnoses else 0.85
+            final_score = adj_conf * domain_w * (best_disease_score + 1.0) * act_boost
+            candidate_diagnoses[agent_key] = best_disease
             scores[agent_key] = final_score
+            multispecialist_findings[agent_key]["evaluated_active"] = spec_active
 
         elif isinstance(resp.output, DiagnosisOutput) or (isinstance(resp.output, dict) and "primary_diagnosis" in resp.output):
             diag_out = resp.output if isinstance(resp.output, DiagnosisOutput) else DiagnosisOutput(**resp.output)
@@ -112,14 +185,65 @@ def _deterministic_fuse(
             candidate_diagnoses[agent_key] = diag_out.primary_diagnosis
             scores[agent_key] = final_score
 
-    # 2. Resolve winner diagnosis
+    # 2. Resolve winner diagnosis and selective multi-specialist active set
     if not scores:
         final_diagnosis = "Unknown Condition"
         overall_conf = 0.60
+        fused_active_diagnoses = []
     else:
         winner_key = max(scores, key=scores.get)
         final_diagnosis = candidate_diagnoses.get(winner_key, "Unknown Condition")
-        overall_conf = max(0.60, min(0.98, scores[winner_key]))
+        winner_spec_conf = multispecialist_findings.get(winner_key, {}).get("confidence", 0.75)
+        overall_conf = max(0.60, min(0.98, winner_spec_conf))
+
+        fused_active_diagnoses = []
+        max_active_diagnoses = 3
+
+        # 1. Primary winner diagnosis is ALWAYS admitted first (guarantees primary preservation & top-1 accuracy)
+        if final_diagnosis and final_diagnosis != "Unknown Condition":
+            fused_active_diagnoses.append(final_diagnosis)
+
+        # 2. Selectively admit additional primary diagnoses from winning specialist (requires margin >= 0.15)
+        w_active = multispecialist_findings.get(winner_key, {}).get("evaluated_active", [])
+        if w_active:
+            w_active_sorted = sorted(w_active, key=lambda x: -x[2])
+            for d, p, m in w_active_sorted:
+                if d == final_diagnosis:
+                    continue
+                if m >= 0.15 and len(fused_active_diagnoses) < max_active_diagnoses:
+                    if d not in fused_active_diagnoses:
+                        fused_active_diagnoses.append(d)
+
+        # 3. Selectively admit secondary specialist diagnoses with evidence-based validation gating:
+        #    - Secondary specialist domain must have presenting indication from router (domain_score >= 0.55)
+        #    - Chronic/background conditions (hypertension, CAD, neuropathy) require p >= 0.85, m >= 0.20, domain_score >= 0.65
+        #    - Acute conditions require p >= 0.70, m >= 0.15
+        #    - General conditions require p >= 0.75, m >= 0.20
+        routing_domain_scores = routing_decision.domain_scores if routing_decision else {}
+        for agent_key in scores:
+            if agent_key == winner_key:
+                continue
+            dom_name = "cardio" if "cardio" in agent_key else ("pulmo" if "pulmo" in agent_key else "neuro")
+            dom_score = routing_domain_scores.get(dom_name, 0.0)
+            if dom_score < 0.55:
+                continue
+
+            sec_active = multispecialist_findings.get(agent_key, {}).get("evaluated_active", [])
+            sec_active_sorted = sorted(sec_active, key=lambda x: -x[2])
+            for d, p, m in sec_active_sorted:
+                if d in CHRONIC_BACKGROUND_DIAGNOSES:
+                    if p < 0.85 or m < 0.20 or dom_score < 0.65:
+                        continue
+                elif d in ACUTE_PRESENTING_DIAGNOSES:
+                    if p < 0.70 or m < 0.15:
+                        continue
+                else:
+                    if p < 0.75 or m < 0.20:
+                        continue
+
+                if len(fused_active_diagnoses) < max_active_diagnoses:
+                    if d not in fused_active_diagnoses:
+                        fused_active_diagnoses.append(d)
 
     # 3. Extract final risk level
     final_risk = "Medium"
@@ -150,19 +274,175 @@ def _deterministic_fuse(
     if not final_recs:
         final_recs = ["Consult attending physician for comprehensive specialist evaluation."]
 
+    if not fused_active_diagnoses and final_diagnosis and final_diagnosis != "Unknown Condition":
+        fused_active_diagnoses = [final_diagnosis]
+
     return FinalFusionOutput(
         final_diagnosis=final_diagnosis,
         final_recommendation=final_recs,
         final_risk_level=final_risk,
         overall_confidence=round(overall_conf, 4),
         active_specialists=active_specialists,
-        multispecialist_findings=multispecialist_findings
+        multispecialist_findings=multispecialist_findings,
+        active_diagnoses=fused_active_diagnoses,
+        unconditioned_active_diagnoses=list(fused_active_diagnoses)
     )
 
 
 # ──────────────────────────────────────────────
 # ORCHESTRATOR
 # ──────────────────────────────────────────────
+
+
+def _dynamic_trust_fuse(
+    agent_results: Dict[str, AgentResponse],
+    rac_output: RACOutput,
+    ipm_output: IPMOutput,
+    routing_decision: SpecialistRoutingDecision,
+    candidate_cutoff: Optional[float] = None,
+    trust_store: Optional[BetaTrustStore] = None
+) -> FinalFusionOutput:
+    '''
+    HealthInsight-UQ Dynamic Trust-Weighted Consensus (Algorithm 5).
+    Integrates verified Bayesian Beta trust posteriors theta_{i,d} from BetaTrustStore,
+    modulated by stochastic perturbation stability u_cons.
+    Prevents cross-domain acute-priority multipliers from overpowering the primary specialist
+    while preserving within-domain ranking.
+    '''
+    multispecialist_findings = {}
+    active_specialists = []
+    
+    # Track domain base confidences for fusion
+    raw_domain_scores = {}
+    trust_weights = {}
+    candidate_diagnoses = {}
+
+    if trust_store is None:
+        trust_store = BetaTrustStore()
+
+    primary_domain = routing_decision.primary_domain if routing_decision and routing_decision.primary_domain else "general"
+
+    for agent_key, resp in agent_results.items():
+        if isinstance(resp.output, SpecialistOutput) or (isinstance(resp.output, dict) and "specialist_type" in resp.output):
+            spec_out = resp.output if isinstance(resp.output, SpecialistOutput) else SpecialistOutput(**resp.output)
+            active_specialists.append(agent_key)
+            multispecialist_findings[agent_key] = {
+                "specialist_type": spec_out.specialist_type,
+                "primary_diagnosis": spec_out.primary_diagnosis,
+                "active_diagnoses": spec_out.active_diagnoses,
+                "disease_probabilities": spec_out.disease_probabilities,
+                "confidence": spec_out.confidence,
+                "urgency": getattr(spec_out, "predicted_urgency", "Normal"),
+                "differential": getattr(spec_out, "differential_diagnoses", [])
+            }
+            
+            # 1. Base domain weight from routing intent
+            base_w = _get_domain_weight(primary_domain, agent_key)
+
+            # 2. Extract stochastic consistency uncertainty
+            u_instability = getattr(spec_out, "u_cons", getattr(spec_out, "u_instability", 0.0))
+            if u_instability is None:
+                u_instability = 0.0
+
+            # 3. Within-domain disease selection (preserving within-domain acute priority)
+            thresh_map = FROZEN_SPECIALIST_THRESHOLDS.get(agent_key, {})
+            best_disease = spec_out.primary_diagnosis
+            best_internal_score = -10.0
+            best_base_margin = 0.0
+            best_acute_weight = 1.0
+
+            for d, p in spec_out.disease_probabilities.items():
+                if candidate_cutoff is not None and p < candidate_cutoff:
+                    continue
+                t = thresh_map.get(d, 0.50)
+                if p >= t:
+                    norm_margin = (p - t) / (1.0 - t + 1e-5)
+                else:
+                    norm_margin = (p - t) / (t + 1e-5)
+
+                base_margin = norm_margin * 0.70 + p * 0.30
+                acute_weight = ACUTE_CLINICAL_PRIORITY.get(d, 1.0)
+                internal_score = base_margin * acute_weight
+
+                if internal_score > best_internal_score:
+                    best_internal_score = internal_score
+                    best_disease = d
+                    best_base_margin = base_margin
+                    best_acute_weight = acute_weight
+
+            # 4. Bayesian Beta expected trust conditioned on primary domain strictly from BetaTrustStore
+            expected_trust = trust_store.get_trust(agent_key, primary_domain)
+            stability = max(0.2, 1.0 - u_instability * 0.5)
+            trust = expected_trust * stability
+
+            # 5. Cross-domain acute priority control:
+            # Prevent cross-domain acute-priority multipliers from overpowering primary specialist
+            is_primary_specialist = (DOMAIN_NAME_MAP.get(agent_key) == primary_domain)
+            if is_primary_specialist:
+                # Primary specialist maintains acute priority; chronic conditions (e.g. HTN 0.80)
+                # are not demoted against competing out-of-domain specialists
+                cross_acute = max(1.0, best_acute_weight)
+            else:
+                # Out-of-domain specialist cannot leverage acute priority bonus (> 1.0) to overpower primary specialist
+                cross_acute = min(1.0, best_acute_weight)
+
+            effective_score = max(0.01, best_base_margin * cross_acute)
+            act_boost = 1.15 if spec_out.active_diagnoses else 0.85
+            trust_weight = base_w * trust * effective_score * act_boost
+            
+            trust_weights[agent_key] = trust_weight
+            raw_domain_scores[agent_key] = trust_weight
+            candidate_diagnoses[agent_key] = best_disease
+
+        elif isinstance(resp.output, DiagnosisOutput) or (isinstance(resp.output, dict) and "primary_diagnosis" in resp.output):
+            diag_out = resp.output if isinstance(resp.output, DiagnosisOutput) else DiagnosisOutput(**resp.output)
+            base_w = _get_domain_weight(primary_domain, agent_key)
+            final_score = base_w * 0.5 * (diag_out.confidence * 0.5 + 0.5)
+            candidate_diagnoses[agent_key] = diag_out.primary_diagnosis
+            raw_domain_scores[agent_key] = final_score
+            trust_weights[agent_key] = final_score
+
+    # Select dominant specialist
+    if raw_domain_scores:
+        dominant_agent = max(raw_domain_scores.items(), key=lambda x: x[1])[0]
+        primary_diag = candidate_diagnoses.get(dominant_agent, "Undetermined")
+        dominant_conf = multispecialist_findings.get(dominant_agent, {}).get("confidence", 0.75)
+        final_conf = max(0.60, min(0.98, dominant_conf))
+    else:
+        dominant_agent = "none"
+        primary_diag = "Undetermined"
+        final_conf = 0.0
+
+    # Aggregate urgency
+    final_urgency = "Normal"
+    for spec_key in active_specialists:
+        spec_data = multispecialist_findings.get(spec_key, {})
+        urg = spec_data.get("urgency", "Normal")
+        if urg == "Emergency":
+            final_urgency = "Emergency"
+        elif urg == "Urgent" and final_urgency == "Normal":
+            final_urgency = "Urgent"
+            
+    final_recs = ["Consult attending physician for comprehensive specialist evaluation."]
+    
+    fused_active_diagnoses = []
+    for spec_key, spec_data in multispecialist_findings.items():
+        for d in spec_data.get("active_diagnoses", []):
+            if d not in fused_active_diagnoses:
+                fused_active_diagnoses.append(d)
+    if not fused_active_diagnoses and primary_diag and primary_diag != "Unknown Condition":
+        fused_active_diagnoses = [primary_diag]
+
+    return FinalFusionOutput(
+        final_diagnosis=primary_diag,
+        overall_confidence=final_conf,
+        final_risk_level=final_urgency,
+        active_specialists=active_specialists,
+        multispecialist_findings=multispecialist_findings,
+        final_recommendation=final_recs,
+        active_diagnoses=fused_active_diagnoses
+    )
+
 
 class Orchestrator:
     """
@@ -175,6 +455,7 @@ class Orchestrator:
         self.rie = RIEModule()
         self.rac = RACModule()
         self.router = SpecialistRouter()
+        self.trust_store = BetaTrustStore()
 
         # Agent registry — keyed by agent name
         self._agent_registry = {
@@ -193,6 +474,9 @@ class Orchestrator:
         patient_text: str,
         history: str = "",
         metadata: dict = None,
+        fusion_mode: str = "deterministic",
+        routing_mode: str = "parallel_all",
+        candidate_cutoff: Optional[float] = None
     ) -> dict:
         total_start = time.time()
 
@@ -220,7 +504,12 @@ class Orchestrator:
         routing_decision = self.router.route(input_data, rie_output, ipm_output)
 
         # ── STEP 4: Determine Agents to Run in Parallel ──
-        agents_to_run = set(routing_decision.selected_specialists)
+        if routing_mode in ("all_specialists", "parallel_all", "parallel"):
+            # All-specialist parallel inference path (runs all 3 frozen ONNX specialists)
+            agents_to_run = {"cardiologist", "pulmonologist", "neurologist"}
+        else:
+            # Default routed path (retains exact standard router behavior)
+            agents_to_run = set(routing_decision.selected_specialists)
 
         # If no specialists selected, activate general diagnosis agent
         if not agents_to_run:
@@ -233,7 +522,8 @@ class Orchestrator:
         if routing_decision.primary_domain == "general":
             agents_to_run.add("diagnosis")
 
-        logger.info(f"Agents selected for execution: {sorted(agents_to_run)}")
+        logger.info(f"Agents selected for execution (routing_mode={routing_mode}): {sorted(agents_to_run)}")
+
 
         # ── STEP 5: Parallel Agent Execution ──
         async def _run_agent(key: str) -> tuple:
@@ -288,9 +578,51 @@ class Orchestrator:
         rac_output = self.rac.evaluate(agent_results)
 
         # ── STEP 8: Deterministic Fusion (0 external calls) ──
-        fusion_result = _deterministic_fuse(
-            agent_results, rac_output, ipm_output, routing_decision
-        )
+        if fusion_mode == "trust":
+            fusion_result = _dynamic_trust_fuse(
+                agent_results, rac_output, ipm_output, routing_decision, candidate_cutoff=candidate_cutoff, trust_store=self.trust_store
+            )
+        else:
+            fusion_result = _deterministic_fuse(
+                agent_results, rac_output, ipm_output, routing_decision, candidate_cutoff=candidate_cutoff
+            )
+
+        # ── P1.6 / Phase 2.7 Selective Abstention Guardrail ──
+        import os
+        import json
+        conformal_path = os.path.join(os.path.dirname(__file__), 'models', 'conformal_config.json')
+        abstention_path = os.path.join(os.path.dirname(__file__), 'models', 'abstention_config.json')
+        tau = 0.5
+        h_limit = 1.0
+        if os.path.exists(conformal_path):
+            try:
+                with open(conformal_path, 'r') as f:
+                    config = json.load(f)
+                    tau = config.get("confidence_threshold_tau", config.get("tau", tau))
+                    h_limit = config.get("h_max", config.get("h_limit", h_limit))
+            except Exception as e:
+                logger.error(f"Failed to load conformal config: {e}")
+        elif os.path.exists(abstention_path):
+            try:
+                with open(abstention_path, 'r') as f:
+                    config = json.load(f)
+                    tau = config.get("tau", tau)
+                    h_limit = config.get("h_limit", h_limit)
+            except Exception as e:
+                logger.error(f"Failed to load abstention config: {e}")
+
+        calib_conf = rac_output.calibrated_confidence if rac_output.calibrated_confidence is not None else fusion_result.overall_confidence
+        e_dom = rac_output.e_domain if rac_output.e_domain is not None else 0.0
+
+        fusion_result.unconditioned_diagnosis = fusion_result.final_diagnosis
+        fusion_result.unconditioned_active_diagnoses = list(fusion_result.active_diagnoses or [])
+
+        if calib_conf < tau or e_dom > h_limit:
+            fusion_result.final_diagnosis = "Uncertain — refer to clinician"
+            fusion_result.is_abstained = True
+            fusion_result.final_recommendation = ["System confidence is below safe operating threshold or specialist conflict is too high. Immediate human clinical review required."]
+            fusion_result.overall_confidence = calib_conf
+            fusion_result.active_diagnoses = []
 
         total_latency_ms = (time.time() - total_start) * 1000
 

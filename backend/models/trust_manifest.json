@@ -1,0 +1,91 @@
+{
+  "manifest_title": "HealthInsight-UQ Bayesian Beta Trust Manifest (Algorithm 5)",
+  "source_data": "datasets/processed/*/clean_calib.json",
+  "sample_size_per_domain": 30,
+  "total_evaluations_per_agent": {
+    "cardiologist": 90,
+    "pulmonologist": 90,
+    "neurologist": 90
+  },
+  "correct_predictions_per_agent": {
+    "cardiologist": 29,
+    "pulmonologist": 27,
+    "neurologist": 24
+  },
+  "trust_means": {
+    "cardiologist": {
+      "Cardiology": 0.9375,
+      "Pulmonology": 0.0312,
+      "Neurology": 0.0312,
+      "general": 0.5
+    },
+    "pulmonologist": {
+      "Cardiology": 0.0312,
+      "Pulmonology": 0.875,
+      "Neurology": 0.0312,
+      "general": 0.5
+    },
+    "neurologist": {
+      "Cardiology": 0.0312,
+      "Pulmonology": 0.0312,
+      "Neurology": 0.7812,
+      "general": 0.5
+    }
+  },
+  "posteriors": {
+    "cardiologist": {
+      "Cardiology": [
+        30.0,
+        2.0
+      ],
+      "Pulmonology": [
+        1.0,
+        31.0
+      ],
+      "Neurology": [
+        1.0,
+        31.0
+      ],
+      "general": [
+        1.0,
+        1.0
+      ]
+    },
+    "pulmonologist": {
+      "Cardiology": [
+        1.0,
+        31.0
+      ],
+      "Pulmonology": [
+        28.0,
+        4.0
+      ],
+      "Neurology": [
+        1.0,
+        31.0
+      ],
+      "general": [
+        1.0,
+        1.0
+      ]
+    },
+    "neurologist": {
+      "Cardiology": [
+        1.0,
+        31.0
+      ],
+      "Pulmonology": [
+        1.0,
+        31.0
+      ],
+      "Neurology": [
+        25.0,
+        7.0
+      ],
+      "general": [
+        1.0,
+        1.0
+      ]
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "config_title": "HealthInsight-UQ Split-Conformal Abstention Config (Algorithm 4)",
+  "split_discipline": "Quantile estimated strictly on clean D_cal (zero train/test overlap)",
+  "target_alpha": 0.1,
+  "target_coverage": 0.9,
+  "calibration_sample_size": 75,
+  "quantile_level": 0.92,
+  "conformal_quantile_tau": 0.99,
+  "confidence_threshold_tau": 0.01,
+  "h_max": 1.0,
+  "alpha_sweep": [
+    {
+      "alpha": 0.05,
+      "target_coverage": 0.95,
+      "quantile_tau": 0.99,
+      "confidence_threshold": 0.01,
+      "empirical_coverage": 1.0,
+      "selective_accuracy": 0.32
+    },
+    {
+      "alpha": 0.08,
+      "target_coverage": 0.92,
+      "quantile_tau": 0.99,
+      "confidence_threshold": 0.01,
+      "empirical_coverage": 1.0,
+      "selective_accuracy": 0.32
+    },
+    {
+      "alpha": 0.1,
+      "target_coverage": 0.9,
+      "quantile_tau": 0.99,
+      "confidence_threshold": 0.01,
+      "empirical_coverage": 1.0,
+      "selective_accuracy": 0.32
+    },
+    {
+      "alpha": 0.12,
+      "target_coverage": 0.88,
+      "quantile_tau": 0.6667,
+      "confidence_threshold": 0.3333,
+      "empirical_coverage": 0.7067,
+      "selective_accuracy": 0.3962
+    },
+    {
+      "alpha": 0.15,
+      "target_coverage": 0.85,
+      "quantile_tau": 0.6667,
+      "confidence_threshold": 0.3333,
+      "empirical_coverage": 0.7067,
+      "selective_accuracy": 0.3962
+    },
+    {
+      "alpha": 0.2,
+      "target_coverage": 0.8,
+      "quantile_tau": 0.5,
+      "confidence_threshold": 0.5,
+      "empirical_coverage": 0.6933,
+      "selective_accuracy": 0.4038
+    },
+    {
+      "alpha": 0.25,
+      "target_coverage": 0.75,
+      "quantile_tau": 0.4848,
+      "confidence_threshold": 0.5152,
+      "empirical_coverage": 0.6933,
+      "selective_accuracy": 0.4038
+    }
+  ],
+  "validation_sample_size": 75
+}

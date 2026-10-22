@@ -21,6 +21,11 @@ class RACOutput(BaseModel):
     agreement_score: float = Field(..., description="Ratio of agreement.")
     conflict_penalty: float = Field(..., description="Penalty applied due to conflict.")
     adjusted_confidence_map: Dict[str, float] = Field(..., description="Adjusted confidence per agent.")
+    e_domain: Optional[float] = Field(default=None, description="Domain Confidence Entropy")
+    c_base: Optional[float] = Field(default=None, description="Base Confidence (Max specialist)")
+    u_instability: Optional[float] = Field(default=None, description="Max Temperature-Sampled Instability")
+    u_cons: Optional[float] = Field(default=None, description="Multi-pass Input Perturbation Consistency Uncertainty")
+    calibrated_confidence: Optional[float] = Field(default=None, description="Logistic Calibrated Confidence")
 
 class PatientInput(BaseModel):
     patient_text: str = Field(..., description="The main clinical report or narrative.")
@@ -68,21 +73,32 @@ class SpecialistOutput(BaseModel):
     predicted_urgency: str = Field(..., description="Predicted clinical urgency: 'Emergency', 'Urgent', or 'Routine'")
     confidence: float = Field(..., description="Confidence score for primary diagnosis")
     thresholds_applied: Dict[str, float] = Field(default_factory=dict, description="Authoritative frozen validation thresholds applied")
+    u_instability: Optional[float] = Field(default=None, description="Prediction Instability / Consistency Uncertainty")
+    u_cons: Optional[float] = Field(default=None, description="Multi-pass Input Perturbation Consistency Uncertainty")
 
 class SpecialistRoutingDecision(BaseModel):
     selected_specialists: List[str] = Field(default_factory=list, description="List of selected specialist agent names (e.g. 'cardiologist', 'pulmonologist', 'neurologist')")
     primary_domain: str = Field(..., description="Dominant medical domain identified")
+    secondary_domains: List[str] = Field(default_factory=list, description="Secondary co-activated specialist agent names or domains")
     domain_scores: Dict[str, float] = Field(default_factory=dict, description="Relevance scores per clinical domain")
     routing_reasons: List[str] = Field(default_factory=list, description="Clinical justifications for the routing decision")
     is_multispecialist: bool = Field(default=False, description="True if multiple specialist domains were co-activated")
+    routing_tier: Literal["LOW", "MEDIUM", "HIGH"] = Field(default="LOW", description="Risk-conditioned activation tier (Low, Medium, High)")
+    ambiguity_score: float = Field(default=0.0, description="Ambiguity risk detector score R(x)")
+    abstain_eligible: bool = Field(default=False, description="True if case is eligible for selective abstention (High risk)")
+    retrieval_enabled: bool = Field(default=False, description="True if guideline retrieval is enabled (Medium or High risk)")
 
 class FinalFusionOutput(BaseModel):
     final_diagnosis: str
+    unconditioned_diagnosis: Optional[str] = Field(default=None, description="Raw unconditioned diagnostic prediction before selective abstention")
+    is_abstained: bool = Field(default=False, description="True if selective abstention guardrail triggered")
     final_recommendation: List[str]
     final_risk_level: str
     overall_confidence: float
     active_specialists: Optional[List[str]] = Field(default_factory=list, description="Specialists that contributed to the final diagnosis")
     multispecialist_findings: Optional[Dict[str, Any]] = Field(default_factory=dict, description="Per-specialist clinical summary findings")
+    active_diagnoses: Optional[List[str]] = Field(default_factory=list, description="Thresholded active diagnoses from participating specialists")
+    unconditioned_active_diagnoses: Optional[List[str]] = Field(default_factory=list, description="Raw thresholded active diagnoses before selective abstention")
 
 class AgentResponse(BaseModel):
     output: Any

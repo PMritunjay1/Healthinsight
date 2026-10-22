@@ -1,0 +1,150 @@
+{
+  "manifest_title": "HealthInsight-UQ Post-Hoc Calibration Manifest",
+  "timestamp": "2026-10-18T02:37:00+05:30",
+  "split_discipline": "Fitted strictly on clean D_cal (zero train/test overlap)",
+  "selected_calibrator": "Isotonic_Regression",
+  "calibration_sample_size": 75,
+  "validation_sample_size": 75,
+  "test_holdout_sample_size": 75,
+  "validation_comparison": {
+    "uncalibrated": {
+      "ece": 0.5114,
+      "brier": 0.4842
+    },
+    "temperature_scaling": {
+      "ece": 0.2603,
+      "brier": 0.2726,
+      "temperature": 7.3157226562500135
+    },
+    "isotonic_regression": {
+      "ece": 0.1683,
+      "brier": 0.2469
+    },
+    "logistic_regression_3f": {
+      "ece": 0.1945,
+      "brier": 0.2378
+    }
+  },
+  "holdout_test_results": {
+    "uncalibrated_ece": 0.5259,
+    "uncalibrated_brier": 0.5058,
+    "calibrated_ece": 0.1856,
+    "calibrated_brier": 0.2993,
+    "bin_details": [
+      {
+        "bin_idx": 0,
+        "range": [
+          0.0,
+          0.1
+        ],
+        "count": 6,
+        "mean_confidence": 0.01,
+        "empirical_accuracy": 0.0,
+        "calibration_gap": 0.01
+      },
+      {
+        "bin_idx": 1,
+        "range": [
+          0.1,
+          0.2
+        ],
+        "count": 0,
+        "mean_confidence": null,
+        "empirical_accuracy": null,
+        "calibration_gap": 0.0
+      },
+      {
+        "bin_idx": 2,
+        "range": [
+          0.2,
+          0.3
+        ],
+        "count": 0,
+        "mean_confidence": null,
+        "empirical_accuracy": null,
+        "calibration_gap": 0.0
+      },
+      {
+        "bin_idx": 3,
+        "range": [
+          0.3,
+          0.4
+        ],
+        "count": 6,
+        "mean_confidence": 0.3342,
+        "empirical_accuracy": 0.3333,
+        "calibration_gap": 0.0009
+      },
+      {
+        "bin_idx": 4,
+        "range": [
+          0.4,
+          0.5
+        ],
+        "count": 0,
+        "mean_confidence": null,
+        "empirical_accuracy": null,
+        "calibration_gap": 0.0
+      },
+      {
+        "bin_idx": 5,
+        "range": [
+          0.5,
+          0.6
+        ],
+        "count": 49,
+        "mean_confidence": 0.5304,
+        "empirical_accuracy": 0.4286,
+        "calibration_gap": 0.1019
+      },
+      {
+        "bin_idx": 6,
+        "range": [
+          0.6,
+          0.7
+        ],
+        "count": 0,
+        "mean_confidence": null,
+        "empirical_accuracy": null,
+        "calibration_gap": 0.0
+      },
+      {
+        "bin_idx": 7,
+        "range": [
+          0.7,
+          0.8
+        ],
+        "count": 0,
+        "mean_confidence": null,
+        "empirical_accuracy": null,
+        "calibration_gap": 0.0
+      },
+      {
+        "bin_idx": 8,
+        "range": [
+          0.8,
+          0.9
+        ],
+        "count": 0,
+        "mean_confidence": null,
+        "empirical_accuracy": null,
+        "calibration_gap": 0.0
+      },
+      {
+        "bin_idx": 9,
+        "range": [
+          0.9,
+          1.0
+        ],
+        "count": 14,
+        "mean_confidence": 0.99,
+        "empirical_accuracy": 0.3571,
+        "calibration_gap": 0.6329
+      }
+    ]
+  },
+  "artifact_paths": {
+    "model_path": "backend\\models\\calibrator_clean.pkl",
+    "reliability_plot": "results\\calibration_reliability_diagram.png"
+  }
+}

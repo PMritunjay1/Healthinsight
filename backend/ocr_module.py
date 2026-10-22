@@ -1,19 +1,30 @@
 import os
 import io
 import logging
-import cv2
-import numpy as np
-import easyocr
-import fitz  # PyMuPDF
 from typing import Dict, Any
+import numpy as np
 
 logger = logging.getLogger("OCR_Module")
 
+try:
+    import cv2
+    import easyocr
+    import fitz  # PyMuPDF
+    OCR_AVAILABLE = True
+except ImportError as _e:
+    OCR_AVAILABLE = False
+    _ocr_err = str(_e)
+    logger.warning(f"OCR libraries not available ({_ocr_err}). OCR endpoints will return fallback warnings.")
+
 class OCRExtractor:
     def __init__(self, languages=['en']):
-        logger.info("Initializing EasyOCR reader (CPU)...")
-        # Initialize easyocr, using CPU by default for broader compatibility
-        self.reader = easyocr.Reader(languages, gpu=False)
+        self.available = OCR_AVAILABLE
+        if self.available:
+            logger.info("Initializing EasyOCR reader (CPU)...")
+            self.reader = easyocr.Reader(languages, gpu=False)
+        else:
+            self.reader = None
+            logger.info("EasyOCR not initialized because optional OCR dependencies are missing.")
         
     def _preprocess_image(self, image_bytes: bytes) -> np.ndarray:
         """Applies basic preprocessing for OCR."""
@@ -150,6 +161,14 @@ class OCRExtractor:
 
     def process_document(self, file_bytes: bytes, filename: str) -> Dict[str, Any]:
         """Main entry point for processing an uploaded document."""
+        if not getattr(self, "available", False):
+            return {
+                "source_type": "unavailable",
+                "ocr_text": "",
+                "ocr_confidence": 0.0,
+                "processing_status": "error",
+                "warnings": ["OCR modules (opencv/easyocr/pymupdf) are not installed in the active environment."]
+            }
         ext = filename.split('.')[-1].lower() if '.' in filename else ''
         
         logger.info(f"Processing document: {filename}")

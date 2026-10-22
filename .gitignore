@@ -2,6 +2,7 @@
 node_modules/
 .venv/
 .venv311/
+.venv_cuda/
 venv/
 __pycache__/
 *.py[cod]
@@ -13,9 +14,7 @@ dist/
 datasets/
 mimic-iv-3.1/
 mimic-iv-ed-2.2/
-data/metadata/
-data/processed/
-data/raw/
+data/
 *.zip
 *.gz
 *.tar
@@ -26,21 +25,33 @@ backend/models/*.onnx
 backend/models/*.onnx.data
 backend/models/*.pt
 backend/models/*.bin
+backend/models/*.safetensors
+backend/models/**/*.safetensors
 *.onnx
 *.onnx.data
+*.safetensors
 
 # Temporary, Logs, and Abandoned Work
 archive_temp/
-results/
+reports/
 docs/
 note/
 scripts/
 WORKSPACE_CLEANUP_AUDIT.md
 *.pdf
 *.log
+*.bak
 .DS_Store
 SHA256SUMS.txt
 scratch/
+
+# Results (Exclude row-level clinical ledgers due to PhysioNet DUA; retain verified evaluation summaries)
+results/*
+!results/evaluation_summary.json
+!results/healthinsight_uq_full_cohort_20261018_173000/
+results/healthinsight_uq_full_cohort_20261018_173000/*
+!results/healthinsight_uq_full_cohort_20261018_173000/evaluation_summary.json
+!results/healthinsight_uq_full_cohort_20261018_173000/FROZEN_INTEGRITY_MANIFEST.json
 
 # Environments
 .env

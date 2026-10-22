@@ -15,7 +15,9 @@ class IntentAgent(BaseAgent):
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         model_path = os.path.join(base_dir, 'models', 'intent_model_single_quant.onnx')
         
-        self.session = ort.InferenceSession(model_path, providers=['CPUExecutionProvider'])
+        available = ort.get_available_providers()
+        providers = ['CUDAExecutionProvider', 'CPUExecutionProvider'] if 'CUDAExecutionProvider' in available else ['CPUExecutionProvider']
+        self.session = ort.InferenceSession(model_path, providers=providers)
         self.tokenizer = AutoTokenizer.from_pretrained('distilbert-base-uncased', local_files_only=True)
         
         # Load rule engine for clinical urgency and task type matching

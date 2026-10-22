@@ -1,0 +1,40 @@
+{
+  "freeze_timestamp": "2026-10-19T17:05:00+05:30",
+  "status": "FROZEN_VERIFIED",
+  "total_cohort_records": 39594,
+  "unconditioned_accuracy": 0.8025,
+  "files": {
+    "error_0.jsonl": {
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "error_1.jsonl": {
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "error_2.jsonl": {
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evaluation_summary.json": {
+      "size_bytes": 523,
+      "sha256": "351ea074f88f2041a68b7df2a0b5db2e8df63fc919e8afa2e17adfd6da36fcab"
+    },
+    "part_0.jsonl": {
+      "size_bytes": 7088529,
+      "sha256": "40de36637046c3f62bd1f93fb2fb58daf37f0332b80419271476a221f7ed4eb0"
+    },
+    "part_1.jsonl": {
+      "size_bytes": 7094417,
+      "sha256": "7b6d244ee3a6c7e2cf9efc1738ab20d02e3da949831f30ebb62034abd5d67d7a"
+    },
+    "part_2.jsonl": {
+      "size_bytes": 7092780,
+      "sha256": "64d1f46c7c1bbcb057aa4d8294cbe790365c00a0324475a9041c4fe2734e6a8f"
+    },
+    "row_level_ledger.jsonl": {
+      "size_bytes": 21275726,
+      "sha256": "96a03e8096c207c1519fc8558335ccb8a4b1bc19e52067b74f74f555efa3f5ad"
+    }
+  }
+}

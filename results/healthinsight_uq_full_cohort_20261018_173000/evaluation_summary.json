@@ -1,0 +1,25 @@
+{
+  "total": 39594,
+  "unconditioned_accuracy": 0.8025,
+  "routing_accuracy": 0.9884,
+  "coverage": 1.0,
+  "abstention_rate": 0.0,
+  "selective_accuracy": 0.8025,
+  "per_specialty": {
+    "Cardiology": {
+      "total": 15099,
+      "accuracy": 0.9132,
+      "abstention_rate": 0.0
+    },
+    "Pulmonology": {
+      "total": 14512,
+      "accuracy": 0.7141,
+      "abstention_rate": 0.0
+    },
+    "Neurology": {
+      "total": 9983,
+      "accuracy": 0.7635,
+      "abstention_rate": 0.0
+    }
+  }
+}
