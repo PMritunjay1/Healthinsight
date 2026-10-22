@@ -22,29 +22,32 @@ HealthInsight-UQ addresses these challenges through a modular architecture:
 - **Three-Signal Uncertainty Quantification**: Combining model confidence ($u^{\text{conf}}$), stochastic forward-pass consistency ($u^{\text{cons}}$), and inter-agent agreement entropy ($H_{\text{agr}}$).
 - **Post-Hoc Probability Calibration**: Mapping fused uncertainty signals to true posterior accuracy via a validated isotonic/logistic calibrator fitted on a disjoint patient partition.
 - **Distribution-Free Split-Conformal Abstention**: Enforcing finite-sample selective prediction coverage guarantees ($1 - \alpha$), systematically converting high-risk errors into physician referrals.
-- **Bayesian Beta Trust Dynamics**: Updating specialist domain credibility ($\theta_{i,d} \sim \text{Beta}(\alpha_{i,d}, \beta_{i,d})$) from calibration feedback to prevent out-of-domain specialists from overriding legitimate consensus.
+- **Bayesian Beta Trust Dynamics**: Updating specialist domain credibility via Beta posteriors $\theta_{i,d} \sim \mathrm{Beta}(\alpha_{i,d}, \beta_{i,d})$ from calibration feedback to prevent out-of-domain specialists from overriding legitimate consensus.
 
 ---
 
 ## 2. System Architecture & Pipeline Flow
 
-The diagnostic pipeline processes patient data through a strictly sequential, six-stage workflow:
+The diagnostic pipeline processes patient data through a sequential, six-stage workflow structured in a two-tier inverted-C topology:
 
 ```mermaid
-graph TD
+flowchart LR
+    subgraph Row1 [" "]
+        direction LR
+        Input["Clinical Input<br>(Text / PDF / OCR)"] --> RIE["1. RIE Extraction<br>(Normalization & Entities)"] --> IPM["2. IPM Intent<br>(Domain & Urgency)"] --> Ambiguity["3. Ambiguity & Routing<br>(3-Tier Triage)"]
+    end
+    
+    subgraph Row2 [" "]
+        direction RL
+        Output["Final Diagnosis JSON<br>(Calibrated Conf & Referral)"] <-- Consensus["6. Beta Trust Fusion<br>(Bayesian Dynamic Consensus)"] <-- RAC["5. RAC Calibration<br>(Uncertainty & Conformal)"] <-- Specialists["4. Specialist Encoders<br>(Cardio, Pulmo, Neuro)"]
+    end
+
+    Ambiguity --> Specialists
+
+    style Row1 fill:none,stroke:none;
+    style Row2 fill:none,stroke:none;
     classDef comp fill:#f8fafc,stroke:#334155,stroke-width:1.5px;
     classDef hl fill:#eff6ff,stroke:#2563eb,stroke-width:2px;
-
-    Input["Unstructured Clinical Input<br>(Narrative Text / PDF / OCR)"] --> RIE["1. Report Interpretation & Extraction (RIE)<br>Deterministic Normalization & Entity Detection"]
-    RIE --> IPM["2. Intent Processing Module (IPM)<br>Domain Classification & Urgency Assessment"]
-    IPM --> Ambiguity["3. Ambiguity & Routing Engine<br>Tier 1 (Low) | Tier 2 (Med) | Tier 3 (High)"]
-    
-    Ambiguity --> Specialists["4. Multi-Task Specialist Encoders (INT8 ONNX)<br>Cardiologist V2 | Pulmonologist V1 | Neurologist V1"]
-    Specialists --> RAC["5. Response Agreement & Calibration (RAC)<br>Uncertainty Triple: (u_conf, u_cons, H_agr) + Conformal Gating"]
-    RAC --> Consensus["6. Bayesian Beta Trust Fusion<br>Dynamic Credibility Weighting E[theta_{i,d}]"]
-    
-    Consensus --> Output["Final Diagnostic Response JSON<br>Diagnosis, Calibrated Confidence, Urgency, Referral Status"]
-
     class Input,Output comp;
     class RIE,IPM,Ambiguity,Specialists,RAC,Consensus hl;
 ```
