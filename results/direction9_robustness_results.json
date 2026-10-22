@@ -1,0 +1,42 @@
+{
+  "clean": {
+    "baseline_correct": 53,
+    "proposed_correct": 52,
+    "total": 209,
+    "baseline_fails_proposed_succeeds": 2,
+    "proposed_fails_baseline_succeeds": 3,
+    "baseline_acc": 0.2535885167464115,
+    "proposed_acc": 0.24880382775119617,
+    "p_value": 1.0,
+    "discordant_b": 2,
+    "discordant_c": 3
+  },
+  "conflict": {
+    "baseline_correct": 6,
+    "proposed_correct": 9,
+    "total": 209,
+    "trust_downweighted": 50,
+    "baseline_fails_proposed_succeeds": 3,
+    "proposed_fails_baseline_succeeds": 0,
+    "baseline_acc": 0.028708133971291867,
+    "proposed_acc": 0.0430622009569378,
+    "p_value": 0.25,
+    "discordant_b": 3,
+    "discordant_c": 0
+  },
+  "degradation": {
+    "baseline_correct": 51,
+    "proposed_correct": 37,
+    "total": 209,
+    "trust_downweighted": 3,
+    "baseline_fails_proposed_succeeds": 3,
+    "proposed_fails_baseline_succeeds": 17,
+    "baseline_acc": 0.24401913875598086,
+    "proposed_acc": 0.17703349282296652,
+    "p_value": 0.00257,
+    "discordant_b": 3,
+    "discordant_c": 17
+  },
+  "details": [],
+  "statistical_method": "exact_binomial_test"
+}

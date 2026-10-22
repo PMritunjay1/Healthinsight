@@ -1,0 +1,21 @@
+Disease Class,True Positives (TP),False Positives (FP),False Negatives (FN),Precision (%),Recall (%),F1-Score (%),Ground Truth Count in Cohort,Predicted Count in Cohort
+hypertension,7534,628,5781,92.31,56.58,70.16,13315,8162
+asthma,3722,1378,1294,72.98,74.2,73.59,5016,5100
+copd,2797,734,1982,79.21,58.53,67.32,4779,3531
+coronary artery disease,2009,258,2745,88.62,42.26,57.23,4754,2267
+heart failure,2533,220,1833,92.01,58.02,71.16,4366,2753
+pneumonia,1481,661,2550,69.14,36.74,47.98,4031,2142
+neuropathy neurodegenerative,2995,1043,990,74.17,75.16,74.66,3985,4038
+atrial fibrillation,1546,136,2394,91.91,39.24,55.0,3940,1682
+respiratory failure,1283,408,1732,75.87,42.55,54.53,3015,1691
+epilepsy seizures,1801,200,963,90.0,65.16,75.59,2764,2001
+altered mental status encephalopathy,683,807,1009,45.84,40.37,42.93,1692,1490
+stroke ischemic,1082,513,563,67.84,65.78,66.79,1645,1595
+pleural effusion,752,345,861,68.55,46.62,55.5,1613,1097
+arrhythmia,167,154,1191,52.02,12.3,19.89,1358,321
+intracranial hemorrhage,1051,242,301,81.28,77.74,79.47,1352,1293
+pulmonary embolism,328,73,343,81.8,48.88,61.19,671,401
+transient ischemic attack,10,15,190,40.0,5.0,8.89,200,25
+angina,0,4,113,0.0,0.0,0.0,113,4
+MACRO AVERAGE,31774,7820,26835,70.2,46.95,54.55,58609,39594
+MICRO AVERAGE,31774,7820,26835,80.25,54.21,64.71,58609,39594

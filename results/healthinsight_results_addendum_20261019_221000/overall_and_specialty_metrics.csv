@@ -1,0 +1,5 @@
+Cohort,Total Records,Correct Records,Accuracy (%),Error Rate (%),Wilson 95% CI Lower (%),Wilson 95% CI Upper (%),Cluster Bootstrap 95% CI Lower (%),Cluster Bootstrap 95% CI Upper (%),Domain Routing Correct,Domain Routing Accuracy (%)
+Full Cohort (Overall),39594,31774,80.2495,19.7505,79.8545,80.6387,79.865,80.6519,39135,98.8407
+Cardiology,15099,13789,91.3239,8.6761,90.8644,91.7625,90.9067,91.7809,15088,99.9271
+Pulmonology,14512,10363,71.4099,28.5901,70.6691,72.1393,70.6515,72.0922,14073,96.9749
+Neurology,9983,7622,76.3498,23.6502,75.5062,77.1731,75.5084,77.1812,9974,99.9098

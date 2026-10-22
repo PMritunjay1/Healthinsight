@@ -45,13 +45,18 @@ WORKSPACE_CLEANUP_AUDIT.md
 SHA256SUMS.txt
 scratch/
 
-# Results (Exclude row-level clinical ledgers due to PhysioNet DUA; retain verified evaluation summaries)
+# Results (Exclude row-level clinical ledgers due to PhysioNet DUA; retain verified evaluation summaries and metrics)
 results/*
 !results/evaluation_summary.json
+!results/direction9_robustness_results.json
+!results/calibration_reliability_diagram.png
+!results/conformal_coverage_accuracy_tradeoff.png
 !results/healthinsight_uq_full_cohort_20261018_173000/
 results/healthinsight_uq_full_cohort_20261018_173000/*
 !results/healthinsight_uq_full_cohort_20261018_173000/evaluation_summary.json
 !results/healthinsight_uq_full_cohort_20261018_173000/FROZEN_INTEGRITY_MANIFEST.json
+!results/healthinsight_results_addendum_20261019_221000/
+!results/healthinsight_results_addendum_20261019_221000/*.csv
 
 # Environments
 .env
