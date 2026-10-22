@@ -28,25 +28,17 @@ HealthInsight-UQ addresses these challenges through a modular architecture:
 
 ## 2. System Architecture & Pipeline Flow
 
-The diagnostic pipeline processes patient data through a sequential, six-stage workflow structured in a two-tier inverted-C topology:
+The diagnostic pipeline processes patient data through a sequential, six-stage workflow structured in an end-to-end horizontal pipeline:
 
 ```mermaid
-flowchart TD
-    subgraph Row1 ["Stage I: Patient Ingestion and Triage Routing"]
-        direction LR
-        Input["Clinical Input<br>(Text / PDF / OCR)"] --> RIE["1. RIE Extraction<br>(Normalization and Entities)"]
-        RIE --> IPM["2. IPM Intent<br>(Domain and Urgency)"]
-        IPM --> Ambiguity["3. Ambiguity and Routing<br>(3-Tier Triage)"]
-    end
-    
-    subgraph Row2 ["Stage II: Multi-Agent Consensus and Output"]
-        direction RL
-        Specialists["4. Specialist Encoders<br>(Cardio, Pulmo, Neuro)"] --> RAC["5. RAC Calibration<br>(Uncertainty and Conformal)"]
-        RAC --> Consensus["6. Beta Trust Fusion<br>(Dynamic Credibility)"]
-        Consensus --> Output["Final Diagnosis JSON<br>(Calibrated Conf and Referral)"]
-    end
-
-    Ambiguity --> Specialists
+flowchart LR
+    Input["Clinical Input<br>(Text / PDF / OCR)"] --> RIE["1. RIE Extraction<br>(Normalization & Entities)"]
+    RIE --> IPM["2. IPM Intent<br>(Domain & Urgency)"]
+    IPM --> Ambiguity["3. Ambiguity & Routing<br>(3-Tier Triage)"]
+    Ambiguity --> Specialists["4. Specialist Encoders<br>(Cardio, Pulmo, Neuro)"]
+    Specialists --> RAC["5. RAC Calibration<br>(Uncertainty & Conformal)"]
+    RAC --> Consensus["6. Beta Trust Fusion<br>(Dynamic Credibility)"]
+    Consensus --> Output["Final Diagnosis JSON<br>(Calibrated Conf & Referral)"]
 ```
 
 ### Pipeline Execution Stages:
