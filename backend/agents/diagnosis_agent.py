@@ -15,7 +15,11 @@ class DiagnosisAgent(BaseAgent):
         model_path = os.path.join(base_dir, 'models', 'diagnosis_model_BiomedNLP-PubMedBERT-base-uncased-abstract_quant.onnx')
         
         self.session = ort.InferenceSession(model_path, providers=['CPUExecutionProvider'])
-        self.tokenizer = AutoTokenizer.from_pretrained('microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract', local_files_only=True)
+        local_tok_dir = os.path.join(base_dir, 'models', 'mlm_pubmedbert_outpatient_s30')
+        if os.path.exists(local_tok_dir):
+            self.tokenizer = AutoTokenizer.from_pretrained(local_tok_dir)
+        else:
+            self.tokenizer = AutoTokenizer.from_pretrained('microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract', local_files_only=True)
         
         # Exact Label List (alphabetically sorted matching LabelEncoder output)
         self.classes = [

@@ -11,15 +11,7 @@ from transformers import AutoTokenizer
 from backend.agents.base_agent import BaseAgent
 from backend.models import PatientInput, AgentResponse, SpecialistOutput
 
-# Ensure CUDA 12 runtime DLLs from PyTorch are discoverable on Windows
-try:
-    import torch
-    _torch_lib = os.path.join(os.path.dirname(torch.__file__), 'lib')
-    if os.path.exists(_torch_lib) and hasattr(os, 'add_dll_directory'):
-        os.add_dll_directory(_torch_lib)
-        os.environ['PATH'] = _torch_lib + os.pathsep + os.environ.get('PATH', '')
-except Exception:
-    pass
+# Fully offline INT8 ONNX inference on CPU
 
 logger = logging.getLogger("SpecialistAgents")
 
@@ -71,20 +63,24 @@ class BaseSpecialistAgent(BaseAgent):
         sess_options = ort.SessionOptions()
         sess_options.intra_op_num_threads = 4
         sess_options.graph_optimization_level = ort.GraphOptimizationLevel.ORT_ENABLE_ALL
-        available = ort.get_available_providers()
-        providers = ['CUDAExecutionProvider', 'CPUExecutionProvider'] if 'CUDAExecutionProvider' in available else ['CPUExecutionProvider']
+        # Quantized INT8 ONNX models run fastest on CPU (VNNI/AVX2) without CUDA memcpy overhead
+        providers = ['CPUExecutionProvider']
         self.session = ort.InferenceSession(model_path, sess_options=sess_options, providers=providers)
 
         # Load local tokenizer
-        try:
-            self.tokenizer = AutoTokenizer.from_pretrained(
-                'microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract',
-                local_files_only=True
-            )
-        except Exception:
-            self.tokenizer = AutoTokenizer.from_pretrained(
-                'microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract'
-            )
+        local_tok_dir = os.path.join(base_dir, 'models', 'mlm_pubmedbert_outpatient_s30')
+        if os.path.exists(local_tok_dir):
+            self.tokenizer = AutoTokenizer.from_pretrained(local_tok_dir)
+        else:
+            try:
+                self.tokenizer = AutoTokenizer.from_pretrained(
+                    'microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract',
+                    local_files_only=True
+                )
+            except Exception:
+                self.tokenizer = AutoTokenizer.from_pretrained(
+                    'microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract'
+                )
 
         logger.info(f"Loaded {self.specialist_type} ONNX model ({os.path.basename(model_path)})")
 
